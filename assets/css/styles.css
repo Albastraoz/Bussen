@@ -1,0 +1,7 @@
+.btn_visible {
+    display: block;
+}
+
+.btn_hidden {
+    display: none;
+}
