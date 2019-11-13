@@ -5,3 +5,12 @@
 .btn_hidden {
     display: none;
 }
+
+.card_box {
+    display: inline-block;
+}
+
+.card_style {
+    width: 180px;
+    height: 270px;
+}
