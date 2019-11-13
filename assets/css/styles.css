@@ -14,3 +14,9 @@
     width: 180px;
     height: 270px;
 }
+
+.btn_card_style {
+    background-color: Transparent;
+    border: 0;
+    padding: 0;
+}

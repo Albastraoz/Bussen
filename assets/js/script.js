@@ -30,12 +30,19 @@
         $('#card2').append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
         $('#card3').append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
         $('#card4').append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
-        $('#card5').append(`<img class="card_style" src="assets/images/cards/${randomCard5}.png"></img>`);
-        $('#card6').append(`<img class="card_style" src="assets/images/cards/${randomCard6}.png"></img>`);
-        $('#card7').append(`<img class="card_style" src="assets/images/cards/${randomCard7}.png"></img>`);
-        $('#card8').append(`<img class="card_style" src="assets/images/cards/${randomCard8}.png"></img>`);
-        $('#card9').append(`<img class="card_style" src="assets/images/cards/${randomCard9}.png"></img>`);
-        $('#card10').append(`<img class="card_style" src="assets/images/cards/${randomCard10}.png"></img>`);
+        $('#card5').append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
+        $('#card6').append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
+        $('#card7').append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
+        $('#card8').append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
+        $('#card9').append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
+        $('#card10').append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
+        
+        $('#btn_card5').prop('disabled', true);
+        $('#btn_card6').prop('disabled', true);
+        $('#btn_card7').prop('disabled', true);
+        $('#btn_card8').prop('disabled', true);
+        $('#btn_card9').prop('disabled', true);
+        $('#btn_card10').prop('disabled', true);
         
         $("#dealButton").removeClass('btn_visible');
 		$("#resetButton").removeClass('btn_hidden');
@@ -51,27 +58,97 @@
         $('#btn_card2').prop('disabled', true);
         $('#btn_card3').prop('disabled', true);
         $('#btn_card4').prop('disabled', true);
+        
+        $('#btn_card5').prop('disabled', false);
+        $('#btn_card6').prop('disabled', false);
+        $('#btn_card7').prop('disabled', false);
     });
+    
     $('#btn_card2').click(function() {
         $('#card2').empty();
         $('#card2').append(`<img class="card_style" src="assets/images/cards/${randomCard2}.png"></img>`);
         $('#btn_card1').prop('disabled', true);
         $('#btn_card3').prop('disabled', true);
         $('#btn_card4').prop('disabled', true);
+        
+        $('#btn_card5').prop('disabled', false);
+        $('#btn_card6').prop('disabled', false);
+        $('#btn_card7').prop('disabled', false);
     });
+    
     $('#btn_card3').click(function() {
         $('#card3').empty();
         $('#card3').append(`<img class="card_style" src="assets/images/cards/${randomCard3}.png"></img>`);
         $('#btn_card2').prop('disabled', true);
         $('#btn_card1').prop('disabled', true);
         $('#btn_card4').prop('disabled', true);
+        
+        $('#btn_card5').prop('disabled', false);
+        $('#btn_card6').prop('disabled', false);
+        $('#btn_card7').prop('disabled', false);
     });
+    
     $('#btn_card4').click(function() {
         $('#card4').empty();
         $('#card4').append(`<img class="card_style" src="assets/images/cards/${randomCard4}.png"></img>`);
         $('#btn_card2').prop('disabled', true);
         $('#btn_card3').prop('disabled', true);
         $('#btn_card1').prop('disabled', true);
+        
+        $('#btn_card5').prop('disabled', false);
+        $('#btn_card6').prop('disabled', false);
+        $('#btn_card7').prop('disabled', false);
+    });
+    
+    $('#btn_card5').click(function() {
+        $('#card5').empty();
+        $('#card5').append(`<img class="card_style" src="assets/images/cards/${randomCard5}.png"></img>`);
+        $('#btn_card6').prop('disabled', true);
+        $('#btn_card7').prop('disabled', true);
+        
+        $('#btn_card8').prop('disabled', false);
+        $('#btn_card9').prop('disabled', false);
+    });
+    
+    $('#btn_card6').click(function() {
+        $('#card6').empty();
+        $('#card6').append(`<img class="card_style" src="assets/images/cards/${randomCard6}.png"></img>`);
+        $('#btn_card5').prop('disabled', true);
+        $('#btn_card7').prop('disabled', true);
+        
+        $('#btn_card8').prop('disabled', false);
+        $('#btn_card9').prop('disabled', false);
+    });
+    
+    $('#btn_card7').click(function() {
+        $('#card7').empty();
+        $('#card7').append(`<img class="card_style" src="assets/images/cards/${randomCard7}.png"></img>`);
+        $('#btn_card5').prop('disabled', true);
+        $('#btn_card6').prop('disabled', true);
+        
+        $('#btn_card8').prop('disabled', false);
+        $('#btn_card9').prop('disabled', false);
+    });
+    
+    $('#btn_card8').click(function() {
+        $('#card8').empty();
+        $('#card8').append(`<img class="card_style" src="assets/images/cards/${randomCard8}.png"></img>`);
+        $('#btn_card9').prop('disabled', true);
+        
+        $('#btn_card10').prop('disabled', false);
+    });
+    
+    $('#btn_card9').click(function() {
+        $('#card9').empty();
+        $('#card9').append(`<img class="card_style" src="assets/images/cards/${randomCard9}.png"></img>`);
+        $('#btn_card8').prop('disabled', true);
+        
+        $('#btn_card10').prop('disabled', false);
+    });
+    
+    $('#btn_card10').click(function() {
+        $('#card10').empty();
+        $('#card10').append(`<img class="card_style" src="assets/images/cards/${randomCard10}.png"></img>`);
     });
 
     $('#resetButton').click(function() {
