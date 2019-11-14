@@ -1,5 +1,5 @@
 .btn_visible {
-    display: block;
+    display: inline-block;
 }
 
 .btn_hidden {
