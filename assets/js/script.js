@@ -3,9 +3,12 @@
     
     $('#dealButton').click(function() {
         
+        for (i = randomCards.length; i < 10; i++) {
+            randomCards.push(cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1));
+            console.log(randomCards.length)
+        }
+
         for (i = 1; i < 11; i++) {
-            var chosenCard = cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1);
-            randomCards.push(chosenCard);
             if (i > 4) {
                 $('#btn_card'+i).prop('disabled', true);
                 $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
@@ -21,6 +24,7 @@
 		$("#dealButton").addClass('btn_hidden');
         
         console.log(cardDeck);
+        console.log(randomCards.toString());
     });
 
     $('#btn_card1').click(function() {
@@ -38,6 +42,8 @@
                 }
             }
         }
+        randomCards.splice(0, 1);
+        console.log(randomCards.length);
     });
     
     $('#btn_card2').click(function() {
@@ -55,6 +61,7 @@
                 }
             }
         }
+        randomCards.splice(1, 1);
     });
     
     $('#btn_card3').click(function() {
@@ -72,6 +79,7 @@
                 }
             }
         }
+        randomCards.splice(2, 1);
     });
     
     $('#btn_card4').click(function() {
@@ -89,6 +97,7 @@
                 }
             }
         }
+        randomCards.splice(3, 1);
     });
     
     $('#btn_card5').click(function() {
@@ -100,12 +109,13 @@
             } else if (i < 8) {
                 $('#btn_card'+i).prop('disabled', true);
                 if (i == 5) {
-                    $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[4]}.png"></img>`);
+                    $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[3]}.png"></img>`);
                 } else {
                     $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
                 }
             }
         }
+        randomCards.splice(3, 1);
     });
     
     $('#btn_card6').click(function() {
@@ -117,12 +127,13 @@
             } else if (i < 8) {
                 $('#btn_card'+i).prop('disabled', true);
                 if (i == 6) {
-                    $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[5]}.png"></img>`);
+                    $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[4]}.png"></img>`);
                 } else {
                     $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
                 }
             }
         }
+        randomCards.splice(4, 1);
     });
     
     $('#btn_card7').click(function() {
@@ -134,12 +145,13 @@
             } else if (i < 8) {
                 $('#btn_card'+i).prop('disabled', true);
                 if (i == 7) {
-                    $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[6]}.png"></img>`);
+                    $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[5]}.png"></img>`);
                 } else {
                     $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
                 }
             }
         }
+        randomCards.splice(5, 1);
     });
     
     $('#btn_card8').click(function() {
@@ -150,13 +162,14 @@
                 $('#btn_card10').prop('disabled', false);
             } else if (i < 10){
                 if (i == 8) {
-                    $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[7]}.png"></img>`);
+                    $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[5]}.png"></img>`);
                 } else {
                     $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
                     $('#btn_card'+i).prop('disabled', true);
                 }
             }
         }
+        randomCards.splice(5, 1);
     });
     
     $('#btn_card9').click(function() {
@@ -167,24 +180,28 @@
                 $('#btn_card10').prop('disabled', false);
             } else if (i < 10){
                 if (i == 9) {
-                    $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[8]}.png"></img>`);
+                    $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[6]}.png"></img>`);
                 } else {
                     $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
                     $('#btn_card'+i).prop('disabled', true);
                 }
             }
         }
+        randomCards.splice(6, 1);
     });
     
     $('#btn_card10').click(function() {
         $('#card10').empty();
-        $('#card10').append(`<img class="card_style" src="assets/images/cards/${randomCards[9]}.png"></img>`);
+        $('#card10').append(`<img class="card_style" src="assets/images/cards/${randomCards[6]}.png"></img>`);
+        randomCards.splice(6, 1);
+        console.log(randomCards.toString());
     });
 
     $('#resetButton').click(function() {
-        cardDeck = ['sa', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sj', 'sq', 'sk', 'da', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'dj', 'dq', 'dk', 'ca', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cj', 'cq', 'ck', 'ha', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'hj', 'hq', 'hk', ];
-        
-        randomCards = [];
+        if (cardDeck.length < 5) {
+            cardDeck = ['sa', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sj', 'sq', 'sk', 'da', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'dj', 'dq', 'dk', 'ca', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cj', 'cq', 'ck', 'ha', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'hj', 'hq', 'hk', ];
+            randomCards = [];
+        }
         
         for (i = 1; i < 11; i++) {
             $('#card'+i).empty();
