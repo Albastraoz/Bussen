@@ -6,6 +6,9 @@
 
     var cardIdentifier;
     var loopIdentifier;
+    var roundIdentifier;
+    var switchIdentifier;
+    var endLoopIdentifier;
 
     var attemptAmount = 0;
     var succeedAmount = 0;
@@ -57,33 +60,75 @@
         console.log(`Your choice is now BLACK`);
     });
 
-    $('#btn_card1, #btn_card2, #btn_card3, #btn_card4').click(function() {    
+    $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_card7, #btn_card8, #btn_card9').click(function() {    
         if (yourChoice === '') {
             console.log(`Please select a color first.`);
         } else {
             if (this.id == 'btn_card1') {
                 cardIdentifier = 0;
                 loopIdentifier = cardIdentifier + 1;
+                roundIdentifier = 1;
+                switchIdentifier = 4;
+                endLoopIdentifier = 8;
             } else if (this.id == 'btn_card2') {
                 cardIdentifier = 1;
                 loopIdentifier = cardIdentifier + 1;
+                roundIdentifier = 1;
+                switchIdentifier = 4;
+                endLoopIdentifier = 8;
             } else if (this.id == 'btn_card3') {
                 cardIdentifier = 2;
                 loopIdentifier = cardIdentifier + 1;
+                roundIdentifier = 1;
+                switchIdentifier = 4;
+                endLoopIdentifier = 8;
             } else if (this.id == 'btn_card4') {
                 cardIdentifier = 3;
                 loopIdentifier = cardIdentifier + 1;
+                roundIdentifier = 1;
+                switchIdentifier = 4;
+                endLoopIdentifier = 8;
+            } else if (this.id == 'btn_card5') {
+                cardIdentifier = 3;
+                loopIdentifier = cardIdentifier + 2;
+                roundIdentifier = 5;
+                switchIdentifier = 7;
+                endLoopIdentifier = 10;
+            } else if (this.id == 'btn_card6') {
+                cardIdentifier = 4;
+                loopIdentifier = cardIdentifier + 2;
+                roundIdentifier = 5;
+                switchIdentifier = 7;
+                endLoopIdentifier = 10;
+            } else if (this.id == 'btn_card7') {
+                cardIdentifier = 5;
+                loopIdentifier = cardIdentifier + 2;
+                roundIdentifier = 5;
+                switchIdentifier = 7;
+                endLoopIdentifier = 10;
+            } else if (this.id == 'btn_card8') {
+                cardIdentifier = 5;
+                loopIdentifier = cardIdentifier + 3;
+                roundIdentifier = 8;
+                switchIdentifier = 9;
+                endLoopIdentifier = 11;
+            } else if (this.id == 'btn_card9') {
+                cardIdentifier = 6;
+                loopIdentifier = cardIdentifier + 3;
+                roundIdentifier = 8;
+                switchIdentifier = 9;
+                endLoopIdentifier = 11;
             }
             
             checkCardColor();
 
             if (yourChoice === correctAnswer) {
-                for (i = 1; i < 8; i++) {
+                for (i = roundIdentifier; i < endLoopIdentifier; i++) {
                     $('#card'+i).empty();
-                    if (i > 4) {
+                    if (i > switchIdentifier) {
                         $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
                         $('#btn_card'+i).prop('disabled', false);
-                    } else if (i < 5) {
+                    } else if (i <= switchIdentifier) {
                         $('#btn_card'+i).prop('disabled', true);
                         if (i == loopIdentifier) {
                             $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
@@ -92,9 +137,9 @@
                         }
                     }
                 }
-                console.log(`You WIN! Continue to the second round.`);
+                console.log(`You WIN! Continue to the next round.`);
             } else {
-                for (i = 1; i < 11; i++) {
+                for (i = roundIdentifier; i < 11; i++) {
                     $('#card'+i).empty();
                     if (i != loopIdentifier) {
                         $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
@@ -111,99 +156,9 @@
         }
     });
     
-    $('#btn_card5, #btn_card6, #btn_card7').click(function() {
-        if (this.id == 'btn_card5') {
-            cardIdentifier = 3;
-            loopIdentifier = cardIdentifier + 2;
-        } else if (this.id == 'btn_card6') {
-            cardIdentifier = 4;
-            loopIdentifier = cardIdentifier + 2;
-        } else if (this.id == 'btn_card7') {
-            cardIdentifier = 5;
-            loopIdentifier = cardIdentifier + 2;
-        }
-
-        checkCardColor();
-
-        if (yourChoice === correctAnswer) {
-            for (i = 5; i < 10; i++) {
-                $('#card'+i).empty();
-                if (i > 7) {
-                    $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
-                    $('#btn_card'+i).prop('disabled', false);
-                } else if (i < 8) {
-                    $('#btn_card'+i).prop('disabled', true);
-                    if (i == loopIdentifier) {
-                        $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
-                    } else {
-                        $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
-                    }
-                }
-            }
-            console.log(`You WIN! Continue to the third round.`);
-        } else {
-            for (i = 5; i < 11; i++) {
-                $('#card'+i).empty();
-                if (i != loopIdentifier) {
-                    $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
-                }
-                $('#btn_card'+i).prop('disabled', true);
-            }
-            $('#card'+loopIdentifier).append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
-            attemptAmount = attemptAmount + 1;
-            console.log(`You were wrong! Try again.`);
-        }
-
-        randomCards.splice(cardIdentifier, 1);
-        console.log(randomCards.length);
-    });
-    
-    $('#btn_card8, #btn_card9').click(function() {
-        if (this.id == 'btn_card8') {
-            cardIdentifier = 5;
-            loopIdentifier = cardIdentifier + 3;
-        } else if (this.id == 'btn_card9') {
-            cardIdentifier = 6;
-            loopIdentifier = cardIdentifier + 3;
-        }
-        
-        checkCardColor();
-
-        if (yourChoice === correctAnswer) {
-            for (i = 8; i < 11; i++) {
-                $('#card'+i).empty();
-                if (i > 9) {
-                    $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
-                    $('#btn_card'+i).prop('disabled', false);
-                } else if (i < 10) {
-                    $('#btn_card'+i).prop('disabled', true);
-                    if (i == loopIdentifier) {
-                        $('#card'+i).append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
-                    } else {
-                        $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
-                    }
-                }
-            }
-            console.log(`You WIN! Continue to the last round.`);
-        } else {
-            for (i = 8; i < 11; i++) {
-                $('#card'+i).empty();
-                if (i != loopIdentifier) {
-                    $('#card'+i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
-                }
-                $('#btn_card'+i).prop('disabled', true);
-            }
-            $('#card'+loopIdentifier).append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
-            attemptAmount = attemptAmount + 1;
-            console.log(`You were wrong! Try again.`);
-        }
-
-        randomCards.splice(cardIdentifier, 1);
-        console.log(randomCards.length);
-    });
-    
     $('#btn_card10').click(function() {
         checkCardColor();
+        
         if (yourChoice === correctAnswer) {
             $('#card10').empty();
             $('#card10').append(`<img class="card_style" src="assets/images/cards/${randomCards[6]}.png"></img>`);
