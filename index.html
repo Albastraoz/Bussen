@@ -5,34 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bussen</title>
+
+    <!--HERE I IMPORTED BOOTSTRAP 4.3 STYLESHEET SOURCE: https://getbootstrap.com/docs/4.3/getting-started/download/-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!--HERE I IMPORT MY OWN STYLESHEET TO OVERLAP BOOTSTRAPS STYLES AND CREATE MY OWN-->
     <link href="assets/css/styles.css" rel="stylesheet">
+
     <script src="https://code.jquery.com/jquery-3.4.1.js"integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="crossorigin="anonymous"></script>
 </head>
 <body>
     
-    <div>
-        <button id="dealButton" class="btn_visible">Deal the cards</button>
-        <button id="resetButton" class="btn_hidden">Restart</button>
-    </div>
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <button id="dealButton" class="btn_visible btn btn-primary">Deal the cards</button>
+            <button id="resetButton" class="btn_hidden btn btn-primary">Restart</button>
+        </div>
+    
+        <div class="row justify-content-center">
+            <button id="choice_red" class="btn btn-danger">Red</button>
+            <button id="choice_black" class="btn btn-dark">Black</button>
+        </div>
+    
 
-    <div>
-        <div><button id="choice_red">Red</button><button id="choice_black">Black</button></div>
+        <div class="row">
+            <div class="col-12 background-styling">
+                <div class="row justify-content-center">
+                    <button id="btn_card1" class="btn_card_style"><div id="card1" class="card_box"></div></button>
+                    <button id="btn_card2" class="btn_card_style"><div id="card2" class="card_box"></div></button>
+                    <button id="btn_card3" class="btn_card_style"><div id="card3" class="card_box"></div></button>
+                    <button id="btn_card4" class="btn_card_style"><div id="card4" class="card_box"></div></button>
+                </div>
+
+                <div class="row justify-content-center">
+                    <button id="btn_card5" class="btn_card_style"><div id="card5" class="card_box"></div></button>
+                    <button id="btn_card6" class="btn_card_style"><div id="card6" class="card_box"></div></button>
+                    <button id="btn_card7" class="btn_card_style"><div id="card7" class="card_box"></div></button>
+                </div>
+
+                <div class="row justify-content-center">
+                    <button id="btn_card8" class="btn_card_style"><div id="card8" class="card_box"></div></button>
+                    <button id="btn_card9" class="btn_card_style"><div id="card9" class="card_box"></div></button>
+                </div>
+
+                <div class="row justify-content-center">
+                    <button id="btn_card10" class="btn_card_style"><div id="card10" class="card_box"></div></button>
+                </div>
+            </div>
+        </div>
     </div>
-    
-    <button id="btn_card1" class="btn_card_style"><div id="card1" class="card_box"></div></button>
-    <button id="btn_card2" class="btn_card_style"><div id="card2" class="card_box"></div></button>
-    <button id="btn_card3" class="btn_card_style"><div id="card3" class="card_box"></div></button>
-    <button id="btn_card4" class="btn_card_style"><div id="card4" class="card_box"></div></button><br>
-    
-    <button id="btn_card5" class="btn_card_style"><div id="card5" class="card_box"></div></button>
-    <button id="btn_card6" class="btn_card_style"><div id="card6" class="card_box"></div></button>
-    <button id="btn_card7" class="btn_card_style"><div id="card7" class="card_box"></div></button><br>
-    
-    <button id="btn_card8" class="btn_card_style"><div id="card8" class="card_box"></div></button>
-    <button id="btn_card9" class="btn_card_style"><div id="card9" class="card_box"></div></button><br>
-    
-    <button id="btn_card10" class="btn_card_style"><div id="card10" class="card_box"></div></button>
-    
 </body>
 <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="assets/js/script.js"></script>

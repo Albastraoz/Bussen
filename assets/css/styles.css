@@ -1,3 +1,7 @@
+.btn {
+    margin: 10px 20px;
+}
+
 .btn_visible {
     display: inline-block;
 }
@@ -8,6 +12,7 @@
 
 .card_box {
     display: inline-block;
+    margin: 10px 20px;
 }
 
 .card_style {
@@ -19,4 +24,13 @@
     background-color: Transparent;
     border: 0;
     padding: 0;
+}
+
+.background-styling {
+    background: url("../images/background_texture_green.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    min-height: 100vh;
 }
