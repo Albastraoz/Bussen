@@ -15,6 +15,11 @@ var succeedAmount = 0;
 
 var randomCards = new Array();
 
+
+var dealCards = new Audio("assets/sounds/deal_cards.wav");
+var flipCard = new Audio("assets/sounds/flip_card.wav");
+
+
 function checkCardColor() {
     for (i = 0; i < 26; i++) {
         if (randomCards[cardIdentifier].indexOf(redCards[i]) > -1) {
@@ -26,6 +31,7 @@ function checkCardColor() {
 }
 
 $('#dealButton').click(function () {
+    dealCards.play();
     $('#warning_textfield').empty();
 
     for (i = randomCards.length; i < 10; i++) {
@@ -63,6 +69,7 @@ function changeColor() {
 };
 
 $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_card7, #btn_card8, #btn_card9').click(function () {
+    flipCard.play();
     $('#warning_textfield').empty();
 
     if (this.id == 'btn_card1') {
@@ -164,6 +171,7 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
 });
 
 $('#btn_card10').click(function () {
+    flipCard.play();
     $('#warning_textfield').empty();
 
     cardIdentifier = 6;
