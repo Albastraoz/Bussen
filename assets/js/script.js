@@ -12,6 +12,19 @@ var roundIdentifier;
 var switchIdentifier;
 var endLoopIdentifier;
 
+var round1;
+var round2;
+var round3;
+var round4;
+
+var roundRule;
+var rule1 = 'Take 1 zip';
+var rule2 = 'Take 2 zips';
+var rule3 = 'Take 3 zips';
+var rule4 = 'Take 1 shot';
+
+var playerName;
+
 var attemptAmount = 0;
 var succeedAmount = 0;
 
@@ -30,22 +43,56 @@ function checkCardColor() {
     }
 }
 
+function changeColor() {
+    if ($('#color_choice').is(':checked')) {
+        yourChoice = `red`;
+    } else {
+        yourChoice = `black`;
+    }
+};
+
+function startGame() {
+    playerName = $('#player_name').val();
+    rule1 = $('#round_one_rule').val();
+    rule2 = $('#round_two_rule').val();
+    rule3 = $('#round_three_rule').val();
+    rule4 = $('#round_four_rule').val();
+    
+    $('.controls-background-settings').css('height','160px');
+    $('#game_info').css('top','0');
+
+    dealCards.play();
+    $('#warning_textfield').empty();
+
+    for (i = randomCards.length; i < 10; i++) {
+        randomCards.push(cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1));
+    }
+
+    for (i = 1; i < 11; i++) {
+        if (i > 4) {
+            $('#btn_card' + i).prop('disabled', true);
+            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
+        } else if (i <= 4) {
+            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
+            $('#btn_card' + i).prop('disabled', false);
+        }
+    }
+}
+
 $('#dealButton').click(function () {
     dealCards.play();
     $('#warning_textfield').empty();
 
-    if (cardDeck.length < 5) {
-        for (i = 0; i < playedCards.length; i++) {
-            cardDeck.push(playedCards[i]);
-        }
-        playedCards = [];
-    }
-
     for (i = randomCards.length; i < 10; i++) {
+        if (cardDeck.length < 1) {
+            for (j = 0; j < playedCards.length; j++) {
+                cardDeck.push(playedCards[t]);
+            }
+            playedCards = [];
+        }
         randomCards.push(cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1));
-        console.log(randomCards.length);
     }
-
+    
     for (i = 1; i < 11; i++) {
         if (i > 4) {
             $('#btn_card' + i).prop('disabled', true);
@@ -60,41 +107,37 @@ $('#dealButton').click(function () {
     $("#resetButton").removeClass('btn_hidden');
     $("#resetButton").addClass('btn_visible');
     $("#dealButton").addClass('btn_hidden');
-
-    console.log(`Card deck contains: ${cardDeck.toString()}`);
-    console.log(`Card deck length: ${cardDeck.length}`);
-    console.log(`Playedcards contains: ${playedCards.toString()}`);
-    console.log(`Playedcards length: ${playedCards.length}`);
-    console.log(`Randomcards contains: ${randomCards.toString()}`);
-    console.log(`Randomcards length: ${randomCards.length}`);
 });
 
 $('#resetButton').click(function () {
+    dealCards.play();
     $('#warning_textfield').empty();
     window.scrollTo(0, 0);
+
+    for (i = randomCards.length; i < 10; i++) {
+        if (cardDeck.length < 1) {
+            for (j = 0; j < playedCards.length; j++) {
+                cardDeck.push(playedCards[t]);
+            }
+            playedCards = [];
+        }
+        randomCards.push(cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1));
+    }
 
     for (i = 1; i < 11; i++) {
         $('#card' + i).empty();
     }
 
-    $("#dealButton").removeClass('btn_hidden').addClass('btn_visible');
-    $("#resetButton").removeClass('btn_visible').addClass('btn_hidden');
-
-    $('#showStats').empty();
-    $('#showStats').append(`<p>Attempts: ${attemptAmount}<br>Wins: ${succeedAmount}</p>`);
-    console.log(`You had ${attemptAmount} attempts and won ${succeedAmount} times.`);
-    console.log(`------------------------------------------------------------`);
-});
-
-function changeColor() {
-    if ($('#color_choice').is(':checked')) {
-        yourChoice = `red`;
-        console.log(`Your choice is now RED`);
-    } else {
-        yourChoice = `black`;
-        console.log(`Your choice is now BLACK`);
+    for (i = 1; i < 11; i++) {
+        if (i > 4) {
+            $('#btn_card' + i).prop('disabled', true);
+            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
+        } else if (i <= 4) {
+            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
+            $('#btn_card' + i).prop('disabled', false);
+        }
     }
-};
+});
 
 $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_card7, #btn_card8, #btn_card9').click(function () {
     flipCard.play();
@@ -106,30 +149,35 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
         roundIdentifier = 1;
         switchIdentifier = 4;
         endLoopIdentifier = 8;
+        roundRule = rule1;
     } else if (this.id == 'btn_card2') {
         cardIdentifier = 1;
         loopIdentifier = cardIdentifier + 1;
         roundIdentifier = 1;
         switchIdentifier = 4;
         endLoopIdentifier = 8;
+        roundRule = rule1;
     } else if (this.id == 'btn_card3') {
         cardIdentifier = 2;
         loopIdentifier = cardIdentifier + 1;
         roundIdentifier = 1;
         switchIdentifier = 4;
         endLoopIdentifier = 8;
+        roundRule = rule1;
     } else if (this.id == 'btn_card4') {
         cardIdentifier = 3;
         loopIdentifier = cardIdentifier + 1;
         roundIdentifier = 1;
         switchIdentifier = 4;
         endLoopIdentifier = 8;
+        roundRule = rule1;
     } else if (this.id == 'btn_card5') {
         cardIdentifier = 3;
         loopIdentifier = cardIdentifier + 2;
         roundIdentifier = 5;
         switchIdentifier = 7;
         endLoopIdentifier = 10;
+        roundRule = rule2;
         window.scrollTo(0, 100);
     } else if (this.id == 'btn_card6') {
         cardIdentifier = 4;
@@ -137,6 +185,7 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
         roundIdentifier = 5;
         switchIdentifier = 7;
         endLoopIdentifier = 10;
+        roundRule = rule2;
         window.scrollTo(0, 100);
     } else if (this.id == 'btn_card7') {
         cardIdentifier = 5;
@@ -144,6 +193,7 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
         roundIdentifier = 5;
         switchIdentifier = 7;
         endLoopIdentifier = 10;
+        roundRule = rule2;
         window.scrollTo(0, 100);
     } else if (this.id == 'btn_card8') {
         cardIdentifier = 5;
@@ -151,6 +201,7 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
         roundIdentifier = 8;
         switchIdentifier = 9;
         endLoopIdentifier = 11;
+        roundRule = rule3;
         window.scrollTo(0, 370);
     } else if (this.id == 'btn_card9') {
         cardIdentifier = 6;
@@ -158,6 +209,7 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
         roundIdentifier = 8;
         switchIdentifier = 9;
         endLoopIdentifier = 11;
+        roundRule = rule3;
         window.scrollTo(0, 370);
     }
 
@@ -178,8 +230,7 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
                 }
             }
         }
-        $('#warning_textfield').append('<p>You WIN! Continue to the next round.</p>');
-        console.log(`You WIN! Continue to the next round.`);
+        $('#warning_textfield').append('<p>You were CORRECT! Choose your next card.</p>');
     } else {
         for (i = roundIdentifier; i < 11; i++) {
             $('#card' + i).empty();
@@ -190,16 +241,14 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
         }
         $('#card' + loopIdentifier).append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
         attemptAmount = attemptAmount + 1;
-        $('#warning_textfield').append('<p>You were wrong! Try again.</p>');
-        console.log(`You were wrong! Try again.`);
+        $('#warning_textfield').append(`<p>You were wrong! ${roundRule} and try again.</p>`);
     }
+
+    $('#showStats').empty();
+    $('#showStats').append(`<p>Attempts: ${attemptAmount}<br>Wins: ${succeedAmount}</p>`);
 
     playedCards.push(randomCards[cardIdentifier]);
     randomCards.splice(cardIdentifier, 1);
-    console.log(`Playedcards contains: ${playedCards.toString()}`);
-    console.log(`Playedcards length: ${playedCards.length}`);
-    console.log(`Randomcards contains: ${randomCards.toString()}`);
-    console.log(`Randomcards length: ${randomCards.length}`);
 });
 
 $('#btn_card10').click(function () {
@@ -207,29 +256,25 @@ $('#btn_card10').click(function () {
     $('#warning_textfield').empty();
 
     cardIdentifier = 6;
+    roundRule = rule4;
 
     checkCardColor();
-
-    console.log(yourChoice);
-    console.log(correctAnswer);
 
     if (yourChoice === correctAnswer) {
         $('#card10').empty();
         $('#card10').append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
         succeedAmount = succeedAmount + 1;
-        $('#warning_textfield').append('<p>Congratulations! You WON the game! Choose the next person to enter the buss.</p>');
-        console.log(`Congratulations! You WON the game! Choose the next person to enter the buss.`);
+        $('#warning_textfield').append('<p>Congratulations! You WON the game and may leave the buss!<br> Choose the next person to enter the buss.</p>');
     } else {
         $('#card10').empty();
         $('#card10').append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
         attemptAmount = attemptAmount + 1;
-        $('#warning_textfield').append('<p>You were wrong! Try again.</p>');
-        console.log(`You were wrong! Try again.`);
+        $('#warning_textfield').append(`<p>You were wrong! ${roundRule} and try again.</p>`);
     }
+
+    $('#showStats').empty();
+    $('#showStats').append(`<p>Attempts: ${attemptAmount}<br>Wins: ${succeedAmount}</p>`);
 
     playedCards.push(randomCards[cardIdentifier]);
     randomCards.splice(6, 1);
-    console.log(randomCards.toString());
 });
-
-console.log(cardDeck);

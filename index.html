@@ -16,30 +16,89 @@
     <!--HERE I IMPORT MY OWN STYLESHEET TO OVERLAP BOOTSTRAPS STYLES AND CREATE MY OWN-->
     <link href="assets/css/styles.css" rel="stylesheet">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
 
 <body>
 
     <header>
         <div class="container-fluid controls-background-settings fixed-top">
-            <div class="row justify-content-center my-2">
+            <div id="game_info" class="row justify-content-center my-2">
                 <div class="col-4 controls-position">
-                    <button id="dealButton" class="btn_visible btn btn-primary">Deal the cards</button>
-                    <button id="resetButton" class="btn_hidden btn btn-primary">Restart</button>
+                    <button id="resetButton" class="btn btn-primary">Restart</button>
                 </div>
 
                 <div class="col-4 controls-position">
-                    <input id="color_choice" type="checkbox" onchange="changeColor()" data-toggle="toggle" data-on="Red"
-                    data-off="Black" data-onstyle="danger" data-offstyle="dark">
+                    <input id="color_choice" type="checkbox" onchange="changeColor();" data-toggle="toggle"
+                        data-on="Red" data-off="Black" data-onstyle="danger" data-offstyle="dark">
                 </div>
 
                 <div class="col-4 controls-position text-color">
-                    <div id="showStats"><p>Attempts: 0<br>Wins: 0</p></div>
+                    <div id="showStats">
+                        <p>Attempts: 0<br>Wins: 0</p>
+                    </div>
                 </div>
             </div>
             <div class="row justify-content-center">
                 <div id="warning_textfield" class="text-color"></div>
+            </div>
+            <div class="controls-spacing"></div>
+            <div class="row justify-content-center position-absolute text-color">
+                <div class="col-6 text-center">
+                    <div class="row">
+                        <h1>How to play Bussen!</h1>
+                    </div>
+                    <div class="row">
+                        <p>This card game is all about luck! The goal is to reach the last round in which you have to
+                            guess the color of the card every round.</p>
+                    </div>
+                    <div class="row">
+                        <p>In the top of the screen you will be able to change color from 'RED' to 'BLACK' with black as
+                            default. If your guess is wrong you will need to do a specific action which will be
+                            specified below.</p>
+                    </div>
+                    <div class="row">
+                        <h2>We would like some information from you before you start:</h2>
+                    </div>
+                    <div class="row justify-content-center">
+                        <div class="col-12">
+                            <form action="#" onsubmit="startGame();">
+                                <div class="row justify-content-center form-group">
+                                    <div class="col-6">
+                                        <label for="player_name">Name:</label>
+                                        <input id="player_name" class="form-control" type="text" placeholder="John" required>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center form-group">
+                                    <div class="col-6">
+                                        <label for="round_one_rule">Rule for round 1:</label>
+                                        <input id="round_one_rule" class="form-control" type="text"
+                                            placeholder="Take a zip" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="round_two_rule">Rule for round 2:</label>
+                                        <input id="round_two_rule" class="form-control" type="text"
+                                            placeholder="Take 2 zips" required>
+                                    </div>
+                                </div>
+                                <div class="row justify-content-center form-group">
+                                    <div class="col-6">
+                                        <label for="round_three_rule">Rule for round 3:</label>
+                                        <input id="round_three_rule" class="form-control" type="text"
+                                            placeholder="Take 3 zips" required>
+                                    </div>
+                                    <div class="col-6">
+                                        <label for="round_four_rule">Rule for round 4:</label>
+                                        <input id="round_four_rule" class="form-control" type="text"
+                                            placeholder="Take a shot" required>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-success btn-lg">Start the game!</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
@@ -51,7 +110,6 @@
                 <div class="row justify-content-center">
                     <button id="btn_card1" class="btn_card_style">
                         <div id="card1" class="card_box"></div>
-                        <!--<div id="card_back1" class="card_box"></div>-->
                     </button>
                     <button id="btn_card2" class="btn_card_style">
                         <div id="card2" class="card_box"></div>

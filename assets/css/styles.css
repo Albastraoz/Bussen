@@ -1,9 +1,22 @@
+h1 {
+    width: 100%;
+}
+
 .btn_visible {
     display: inline-block;
 }
 
 .btn_hidden {
     display: none;
+}
+
+#game_info {
+    position: absolute;
+    width: 100%;
+    top: -160px;
+    transition:top 1s ease-out;   
+    -moz-transition:top 1s ease-out;   
+    -webkit-transition:top 1s ease-out;
 }
 
 .card_box {
@@ -32,8 +45,13 @@
 }
 
 .controls-background-settings {
+    overflow: hidden;
+    display: block;
     background-color: #000000;
-    min-height: 160px;
+    transition:height 1s ease-out;   
+    -moz-transition:height 1s ease-out;   
+    -webkit-transition:height 1s ease-out;
+    height: 100vh;
 }
 
 .controls-spacing {
