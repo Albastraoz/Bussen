@@ -1,6 +1,8 @@
 var cardDeck = ['sa', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sj', 'sq', 'sk', 'da', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'dj', 'dq', 'dk', 'ca', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cj', 'cq', 'ck', 'ha', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'hj', 'hq', 'hk'];
 var redCards = ['da', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'dj', 'dq', 'dk', 'ha', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'hj', 'hq', 'hk'];
 var blackCards = ['sa', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sj', 'sq', 'sk', 'ca', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cj', 'cq', 'ck'];
+var playedCards = [];
+
 var yourChoice = 'black';
 var correctAnswer;
 
@@ -15,10 +17,8 @@ var succeedAmount = 0;
 
 var randomCards = new Array();
 
-
 var dealCards = new Audio("assets/sounds/deal_cards.wav");
 var flipCard = new Audio("assets/sounds/flip_card.wav");
-
 
 function checkCardColor() {
     for (i = 0; i < 26; i++) {
@@ -34,6 +34,13 @@ $('#dealButton').click(function () {
     dealCards.play();
     $('#warning_textfield').empty();
 
+    if (cardDeck.length < 5) {
+        for (i = 0; i < playedCards.length; i++) {
+            cardDeck.push(playedCards[i]);
+        }
+        playedCards = [];
+    }
+
     for (i = randomCards.length; i < 10; i++) {
         randomCards.push(cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1));
         console.log(randomCards.length);
@@ -43,7 +50,7 @@ $('#dealButton').click(function () {
         if (i > 4) {
             $('#btn_card' + i).prop('disabled', true);
             $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
-        } else if (i < 5) {
+        } else if (i <= 4) {
             $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
             $('#btn_card' + i).prop('disabled', false);
         }
@@ -54,8 +61,29 @@ $('#dealButton').click(function () {
     $("#resetButton").addClass('btn_visible');
     $("#dealButton").addClass('btn_hidden');
 
-    console.log(cardDeck);
-    console.log(randomCards.toString());
+    console.log(`Card deck contains: ${cardDeck.toString()}`);
+    console.log(`Card deck length: ${cardDeck.length}`);
+    console.log(`Playedcards contains: ${playedCards.toString()}`);
+    console.log(`Playedcards length: ${playedCards.length}`);
+    console.log(`Randomcards contains: ${randomCards.toString()}`);
+    console.log(`Randomcards length: ${randomCards.length}`);
+});
+
+$('#resetButton').click(function () {
+    $('#warning_textfield').empty();
+    window.scrollTo(0, 0);
+
+    for (i = 1; i < 11; i++) {
+        $('#card' + i).empty();
+    }
+
+    $("#dealButton").removeClass('btn_hidden').addClass('btn_visible');
+    $("#resetButton").removeClass('btn_visible').addClass('btn_hidden');
+
+    $('#showStats').empty();
+    $('#showStats').append(`<p>Attempts: ${attemptAmount}<br>Wins: ${succeedAmount}</p>`);
+    console.log(`You had ${attemptAmount} attempts and won ${succeedAmount} times.`);
+    console.log(`------------------------------------------------------------`);
 });
 
 function changeColor() {
@@ -166,8 +194,12 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
         console.log(`You were wrong! Try again.`);
     }
 
+    playedCards.push(randomCards[cardIdentifier]);
     randomCards.splice(cardIdentifier, 1);
-    console.log(randomCards.length);
+    console.log(`Playedcards contains: ${playedCards.toString()}`);
+    console.log(`Playedcards length: ${playedCards.length}`);
+    console.log(`Randomcards contains: ${randomCards.toString()}`);
+    console.log(`Randomcards length: ${randomCards.length}`);
 });
 
 $('#btn_card10').click(function () {
@@ -183,42 +215,21 @@ $('#btn_card10').click(function () {
 
     if (yourChoice === correctAnswer) {
         $('#card10').empty();
-        $('#card10').append(`<img class="card_style" src="assets/images/cards/${randomCards[6]}.png"></img>`);
+        $('#card10').append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
         succeedAmount = succeedAmount + 1;
         $('#warning_textfield').append('<p>Congratulations! You WON the game! Choose the next person to enter the buss.</p>');
         console.log(`Congratulations! You WON the game! Choose the next person to enter the buss.`);
     } else {
         $('#card10').empty();
-        $('#card10').append(`<img class="card_style" src="assets/images/cards/${randomCards[6]}.png"></img>`);
+        $('#card10').append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
         attemptAmount = attemptAmount + 1;
         $('#warning_textfield').append('<p>You were wrong! Try again.</p>');
         console.log(`You were wrong! Try again.`);
     }
 
+    playedCards.push(randomCards[cardIdentifier]);
     randomCards.splice(6, 1);
     console.log(randomCards.toString());
-});
-
-$('#resetButton').click(function () {
-    $('#warning_textfield').empty();
-    window.scrollTo(0, 0);
-
-    if (cardDeck.length < 5) {
-        cardDeck = ['sa', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sj', 'sq', 'sk', 'da', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'dj', 'dq', 'dk', 'ca', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cj', 'cq', 'ck', 'ha', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'hj', 'hq', 'hk',];
-        randomCards = [];
-    }
-
-    for (i = 1; i < 11; i++) {
-        $('#card' + i).empty();
-    }
-
-    $("#dealButton").removeClass('btn_hidden').addClass('btn_visible');
-    $("#resetButton").removeClass('btn_visible').addClass('btn_hidden');
-
-    $('#showStats').empty();
-    $('#showStats').append(`<p>Attempts: ${attemptAmount}<br>Wins: ${succeedAmount}</p>`);
-    console.log(`You had ${attemptAmount} attempts and won ${succeedAmount} times.`);
-    console.log(cardDeck);
 });
 
 console.log(cardDeck);
