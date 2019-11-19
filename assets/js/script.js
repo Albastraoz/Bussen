@@ -77,42 +77,13 @@ function startGame() {
             $('#btn_card' + i).prop('disabled', false);
         }
     }
+    $('#warning_textfield').append(`<p>Good luck ${playerName}!</p>`);
 }
-
-$('#dealButton').click(function () {
-    dealCards.play();
-    $('#warning_textfield').empty();
-
-    for (i = randomCards.length; i < 10; i++) {
-        if (cardDeck.length < 1) {
-            for (j = 0; j < playedCards.length; j++) {
-                cardDeck.push(playedCards[t]);
-            }
-            playedCards = [];
-        }
-        randomCards.push(cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1));
-    }
-    
-    for (i = 1; i < 11; i++) {
-        if (i > 4) {
-            $('#btn_card' + i).prop('disabled', true);
-            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
-        } else if (i <= 4) {
-            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
-            $('#btn_card' + i).prop('disabled', false);
-        }
-    }
-
-    $("#dealButton").removeClass('btn_visible');
-    $("#resetButton").removeClass('btn_hidden');
-    $("#resetButton").addClass('btn_visible');
-    $("#dealButton").addClass('btn_hidden');
-});
 
 $('#resetButton').click(function () {
     dealCards.play();
     $('#warning_textfield').empty();
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     for (i = randomCards.length; i < 10; i++) {
         if (cardDeck.length < 1) {
@@ -178,7 +149,7 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
         switchIdentifier = 7;
         endLoopIdentifier = 10;
         roundRule = rule2;
-        window.scrollTo(0, 100);
+        window.scrollTo({ top: 100, behavior: 'smooth' });
     } else if (this.id == 'btn_card6') {
         cardIdentifier = 4;
         loopIdentifier = cardIdentifier + 2;
@@ -186,7 +157,7 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
         switchIdentifier = 7;
         endLoopIdentifier = 10;
         roundRule = rule2;
-        window.scrollTo(0, 100);
+        window.scrollTo({ top: 100, behavior: 'smooth' });
     } else if (this.id == 'btn_card7') {
         cardIdentifier = 5;
         loopIdentifier = cardIdentifier + 2;
@@ -194,7 +165,7 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
         switchIdentifier = 7;
         endLoopIdentifier = 10;
         roundRule = rule2;
-        window.scrollTo(0, 100);
+        window.scrollTo({ top: 100, behavior: 'smooth' });
     } else if (this.id == 'btn_card8') {
         cardIdentifier = 5;
         loopIdentifier = cardIdentifier + 3;
@@ -202,7 +173,7 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
         switchIdentifier = 9;
         endLoopIdentifier = 11;
         roundRule = rule3;
-        window.scrollTo(0, 370);
+        window.scrollTo({ top: 380, behavior: 'smooth' });
     } else if (this.id == 'btn_card9') {
         cardIdentifier = 6;
         loopIdentifier = cardIdentifier + 3;
@@ -210,7 +181,7 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
         switchIdentifier = 9;
         endLoopIdentifier = 11;
         roundRule = rule3;
-        window.scrollTo(0, 370);
+        window.scrollTo({ top: 380, behavior: 'smooth' });
     }
 
     checkCardColor();
@@ -246,9 +217,10 @@ $('#btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_
 
     $('#showStats').empty();
     $('#showStats').append(`<p>Attempts: ${attemptAmount}<br>Wins: ${succeedAmount}</p>`);
-
+    
     playedCards.push(randomCards[cardIdentifier]);
     randomCards.splice(cardIdentifier, 1);
+    randomCards.splice(cardIdentifier, 0, cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1));
 });
 
 $('#btn_card10').click(function () {

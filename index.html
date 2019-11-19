@@ -24,24 +24,26 @@
 
     <header>
         <div class="container-fluid controls-background-settings fixed-top">
-            <div id="game_info" class="row justify-content-center my-2">
-                <div class="col-4 controls-position">
-                    <button id="resetButton" class="btn btn-primary">Restart</button>
-                </div>
+            <div id="game_info">
+                <div class="row justify-content-center my-2">
+                    <div class="col-4 controls-position">
+                        <button id="resetButton" class="btn btn-primary">Restart</button>
+                    </div>
 
-                <div class="col-4 controls-position">
-                    <input id="color_choice" type="checkbox" onchange="changeColor();" data-toggle="toggle"
-                        data-on="Red" data-off="Black" data-onstyle="danger" data-offstyle="dark">
-                </div>
+                    <div class="col-4 controls-position text-center">
+                        <input id="color_choice" type="checkbox" onchange="changeColor();" data-toggle="toggle"
+                            data-on="Red" data-off="Black" data-onstyle="danger" data-offstyle="dark">
+                    </div>
 
-                <div class="col-4 controls-position text-color">
-                    <div id="showStats">
-                        <p>Attempts: 0<br>Wins: 0</p>
+                    <div class="col-4 controls-position text-right text-color">
+                        <div id="showStats">
+                            <p>Attempts: 0<br>Wins: 0</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row justify-content-center">
-                <div id="warning_textfield" class="text-color"></div>
+                <div class="row justify-content-center">
+                    <div id="warning_textfield" class="text-color"></div>
+                </div>
             </div>
             <div class="controls-spacing"></div>
             <div class="row justify-content-center position-absolute text-color">
@@ -67,7 +69,8 @@
                                 <div class="row justify-content-center form-group">
                                     <div class="col-6">
                                         <label for="player_name">Name:</label>
-                                        <input id="player_name" class="form-control" type="text" placeholder="John" required>
+                                        <input id="player_name" class="form-control" type="text" placeholder="John"
+                                            required>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center form-group">
