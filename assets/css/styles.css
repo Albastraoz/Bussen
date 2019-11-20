@@ -65,3 +65,17 @@ h1 {
 .text-color {
     color: #ffffff;
 }
+
+.modal-header {
+    display: block;
+    text-align: center;
+}
+
+.modal-body {
+    text-align: center;
+}
+
+.modal-footer {
+    display: block;
+    text-align: center;
+}

@@ -15,9 +15,6 @@
 
     <!--HERE I IMPORT MY OWN STYLESHEET TO OVERLAP BOOTSTRAPS STYLES AND CREATE MY OWN-->
     <link href="assets/css/styles.css" rel="stylesheet">
-
-    <script src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -27,7 +24,7 @@
             <div id="game_info">
                 <div class="row justify-content-center my-2">
                     <div class="col-4 controls-position">
-                        <button id="resetButton" class="btn btn-primary">Try again!</button>
+                        <button id="reset_button" class="btn btn-primary">Restart</button>
                     </div>
 
                     <div class="col-4 controls-position text-center">
@@ -46,8 +43,8 @@
                 </div>
             </div>
             <div class="controls-spacing"></div>
-            <div class="row justify-content-center position-absolute text-color">
-                <div class="col-6 text-center">
+            <div class="row justify-content-center text-color">
+                <div class="col-12 col-lg-6 position-absolute text-center">
                     <div class="row">
                         <h1>How to play Bussen!</h1>
                     </div>
@@ -65,36 +62,36 @@
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-12">
-                            <form action="#" onsubmit="startGame();">
+                            <form onsubmit="startGame(); return false;">
                                 <div class="row justify-content-center form-group">
                                     <div class="col-6">
-                                        <label for="player_name">Name:</label>
+                                        <label for="player_name">Name*</label>
                                         <input id="player_name" class="form-control" type="text" placeholder="John"
                                             required>
                                     </div>
                                 </div>
                                 <div class="row justify-content-center form-group">
                                     <div class="col-6">
-                                        <label for="round_one_rule">Rule for round 1:</label>
+                                        <label for="round_one_rule">Rule for round 1</label>
                                         <input id="round_one_rule" class="form-control" type="text"
-                                            placeholder="Take a zip" required>
+                                            placeholder="Take a zip">
                                     </div>
                                     <div class="col-6">
-                                        <label for="round_two_rule">Rule for round 2:</label>
+                                        <label for="round_two_rule">Rule for round 2</label>
                                         <input id="round_two_rule" class="form-control" type="text"
-                                            placeholder="Take 2 zips" required>
+                                            placeholder="Take 2 zips">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center form-group">
                                     <div class="col-6">
-                                        <label for="round_three_rule">Rule for round 3:</label>
+                                        <label for="round_three_rule">Rule for round 3</label>
                                         <input id="round_three_rule" class="form-control" type="text"
-                                            placeholder="Take 3 zips" required>
+                                            placeholder="Take 3 zips">
                                     </div>
                                     <div class="col-6">
-                                        <label for="round_four_rule">Rule for round 4:</label>
+                                        <label for="round_four_rule">Rule for round 4</label>
                                         <input id="round_four_rule" class="form-control" type="text"
-                                            placeholder="Take a shot" required>
+                                            placeholder="Take a shot">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-success btn-lg">Start the game!</button>
@@ -155,22 +152,32 @@
         </div>
     </div>
 
+    <div id="modal_message" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div id="message_header" class="modal-header"></div>
+                <div id="message_body" class="modal-body"></div>
+                <div id="message_footer" class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">Try again!</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 
-<!--HERE I IMPORTED BOOTSTRAPS JAVASCRIPT SOURCE: https://getbootstrap.com/docs/4.3/getting-started/download/-->
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
+<!--HERE I IMPORT JQUERY-->
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<!--HERE I IMPORT BOOTSTRAPS JAVASCRIPT SOURCE: https://getbootstrap.com/docs/4.3/getting-started/download/-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
     crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
     crossorigin="anonymous"></script>
+<!--HERE I IMPORT BOOTSTRAPS SWITCH PLUGIN-->
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
-
-<script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-    crossorigin="anonymous"></script>
+<!--HERE I IMPORT MY OWN JAVASCRIPT-->
 <script type="text/javascript" src="assets/js/script.js"></script>
 
 </html>

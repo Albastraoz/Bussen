@@ -3,7 +3,7 @@ var redCards = ['da', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'dj
 var blackCards = ['sa', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sj', 'sq', 'sk', 'ca', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cj', 'cq', 'ck'];
 var playedCards = [];
 
-var yourChoice = 'black';
+var yourChoice = 'BLACK';
 var correctAnswer;
 
 var cardIdentifier;
@@ -12,10 +12,10 @@ var switchIdentifier;
 var endLoopIdentifier;
 
 var roundRule;
-var rule1 = 'Take 1 zip';
-var rule2 = 'Take 2 zips';
-var rule3 = 'Take 3 zips';
-var rule4 = 'Take 1 shot';
+var rule1;
+var rule2;
+var rule3;
+var rule4;
 
 var playerName;
 
@@ -29,21 +29,37 @@ var flipCard = new Audio("assets/sounds/flip_card.wav");
 
 function changeColor() {
     if ($('#color_choice').is(':checked')) {
-        yourChoice = `red`;
+        yourChoice = `RED`;
     } else {
-        yourChoice = `black`;
+        yourChoice = `BLACK`;
     }
 };
 
 function startGame() {
-    playerName = $('#player_name').val();
-    rule1 = $('#round_one_rule').val();
-    rule2 = $('#round_two_rule').val();
-    rule3 = $('#round_three_rule').val();
-    rule4 = $('#round_four_rule').val();
-    
     $('.controls-background-settings').css('height','160px');
     $('#game_info').css('top','0');
+
+    playerName = $('#player_name').val();
+    if ($('#round_one_rule').val() == '') {
+        rule1 = 'Take one zip';
+    } else {
+        rule1 = $('#round_one_rule').val();
+    }
+    if ($('#round_two_rule').val() == '') {
+        rule2 = 'Take two zips';
+    } else {
+        rule2 = $('#round_two_rule').val();
+    }
+    if ($('#round_three_rule').val() == '') {
+        rule3 = 'Take three zips';
+    } else {
+        rule3 = $('#round_three_rule').val();
+    }
+    if ($('#round_four_rule').val() == '') {
+        rule4 = 'Take one shot';
+    } else {
+        rule4 = $('#round_four_rule').val();
+    }
 
     dealCards.play();
     $('#warning_textfield').empty();
@@ -67,7 +83,27 @@ function startGame() {
     console.log(`-- Create random Cards --`);
 }
 
-$('#resetButton').click(function () {
+$('#modal_message').on('hidden.bs.modal', function (e) {
+    dealCards.play();
+    $('#warning_textfield').empty();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    for (i = 0; i < 10; i++) {
+        $('#card' + i).empty();
+    }
+
+    for (i = 0; i < 10; i++) {
+        if (i > 3) {
+            $('#btn_card' + i).prop('disabled', true);
+            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png"></img>`);
+        } else if (i <= 3) {
+            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png"></img>`);
+            $('#btn_card' + i).prop('disabled', false);
+        }
+    }
+});
+
+$('#reset_button').click(function () {
     dealCards.play();
     $('#warning_textfield').empty();
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -125,9 +161,9 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
 
     for (i = 0; i < 26; i++) {
         if (randomCards[cardIdentifier].indexOf(redCards[i]) > -1) {
-            correctAnswer = `red`;
+            correctAnswer = `RED`;
         } else if (randomCards[cardIdentifier].indexOf(blackCards[i]) > -1) {
-            correctAnswer = `black`;
+            correctAnswer = `BLACK`;
         }
     }
 
@@ -148,7 +184,11 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
         }
         if (cardIdentifier == 9) {
             succeedAmount = succeedAmount + 1;
-            $('#warning_textfield').append('<p>Congratulations! You WON the game and may leave the buss!<br> Choose the next person to enter the buss.</p>');
+            $('#message_header').empty();
+            $('#message_body').empty();
+            $('#message_header').append(`<h5>Congratulations! You WON and may leave the buss!</h5>`);
+            $('#message_body').append(`<p>You choose <b>${yourChoice}</b></p><img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
+            $('#modal_message').modal('show');
         } else {
             $('#warning_textfield').append('<p>You were CORRECT! Choose your next card.</p>');
         }
@@ -162,7 +202,11 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
         }
         $('#card' + cardIdentifier).append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
         attemptAmount = attemptAmount + 1;
-        $('#warning_textfield').append(`<p>You were wrong! ${roundRule} and try again.</p>`);
+        $('#message_header').empty();
+        $('#message_body').empty();
+        $('#message_header').append(`<h5>You lost...</h5>`);
+        $('#message_body').append(`<p>You choose <b>${yourChoice}</b>.<br>${roundRule} and try again.</p><img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
+        $('#modal_message').modal('show');
     }
 
     $('#showStats').empty();
