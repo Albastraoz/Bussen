@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 h1 {
     width: 100%;
 }
