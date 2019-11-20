@@ -25,12 +25,21 @@ h1 {
 
 .card_box {
     display: inline-block;
-    margin: 10px 20px;
+    max-width: 70px;
+    max-height: 105px;
 }
 
 .card_style {
-    width: 180px;
-    height: 270px;
+    width: 70px;
+    height: 105px;
+}
+
+.card-width-spacing {
+    width: 10px;
+}
+
+.card-height-spacing {
+    height: 10px;
 }
 
 .btn_card_style {
@@ -82,4 +91,38 @@ h1 {
 .modal-footer {
     display: block;
     text-align: center;
+}
+
+@media (min-width: 768px) {
+    .card_style {
+        width: 120px;
+        height: 180px;
+    }
+    .card_box {
+        max-width: 120px;
+        max-height: 180px;
+    }
+    .card-width-spacing {
+        width: 20px;
+    }
+    .card-height-spacing {
+        height: 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    .card_style {
+        width: 180px;
+        height: 270px;
+    }
+    .card_box {
+        max-width: 180px;
+        max-height: 270px;
+    }
+    .card-width-spacing {
+        width: 20px;
+    }
+    .card-height-spacing {
+        height: 20px;
+    }
 }

@@ -23,9 +23,16 @@ var attemptAmount = 0;
 var succeedAmount = 0;
 
 var randomCards = new Array();
+var scrollSize;
 
 var dealCards = new Audio("assets/sounds/deal_cards.wav");
 var flipCard = new Audio("assets/sounds/flip_card.wav");
+
+if (window.matchMedia('(min-width: 768px)').matches) {
+    scrollSize = 100;
+} else {
+    scrollSize = 0;
+}
 
 function changeColor() {
     if ($('#color_choice').is(':checked')) {
@@ -150,13 +157,13 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
             switchIdentifier = 6;
             endLoopIdentifier = 9;
             roundRule = rule2;
-            window.scrollTo({ top: 100, behavior: 'smooth' });
+            window.scrollTo({ top: scrollSize, behavior: 'smooth' });
         } else if (cardIdentifier <= 8) {
             roundIdentifier = 7;
             switchIdentifier = 8;
             endLoopIdentifier = 10;
             roundRule = rule3;
-            window.scrollTo({ top: 380, behavior: 'smooth' });
+            window.scrollTo({ top: scrollSize * 4, behavior: 'smooth' });
         } else if (cardIdentifier == 9) {
             roundIdentifier = 9;
             switchIdentifier = 9;
