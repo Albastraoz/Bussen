@@ -36,8 +36,12 @@ function changeColor() {
 };
 
 function startGame() {
+    $('.controls-background-settings').css('overflow','hidden');
     $('.controls-background-settings').css('height','160px');
     $('#game_info').css('top','0');
+    setTimeout( function(){
+        $('#intro_text').addClass('d-none');
+    },1000);
 
     playerName = $('#player_name').val();
     if ($('#round_one_rule').val() == '') {

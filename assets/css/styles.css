@@ -45,7 +45,7 @@ h1 {
 }
 
 .controls-background-settings {
-    overflow: hidden;
+    overflow: auto;
     display: block;
     background-color: #000000;
     transition:height 1s ease-out;   
