@@ -43,14 +43,10 @@ function changeColor() {
 };
 
 function startGame() {
-    $('.controls-background-settings').css('overflow','hidden');
-    $('.controls-background-settings').css('height','160px');
+    $('.intro-settings').css('overflow','hidden');
+    $('.intro-settings').css('height','0px');
     $('#game_info').css('top','0');
     $('body').css('overflow','auto');
-    setTimeout( function(){
-        $('#intro_text').addClass('d-none');
-    },1000);
-
 
     playerName = $('#player_name').val();
     if ($('#round_one_rule').val() == '') {

@@ -6,18 +6,10 @@ h1 {
     width: 100%;
 }
 
-.btn_visible {
-    display: inline-block;
-}
-
-.btn_hidden {
-    display: none;
-}
-
 #game_info {
     position: absolute;
     width: 100%;
-    top: -160px;
+    top: -20vh;
     transition:top 1s ease-out;   
     -moz-transition:top 1s ease-out;   
     -webkit-transition:top 1s ease-out;
@@ -57,18 +49,24 @@ h1 {
     min-height: 100vh;
 }
 
-.controls-background-settings {
+.intro-settings {
+    top: 20vh;
     overflow: auto;
     display: block;
     background-color: #000000;
     transition:height 1s ease-out;   
     -moz-transition:height 1s ease-out;   
     -webkit-transition:height 1s ease-out;
-    height: 100vh;
+    height: 80vh;
 }
 
-.controls-spacing {
-    min-height: 160px;
+.menu-settings {
+    height: 20vh;
+    background-color: #000000;
+}
+
+.menu-spacing {
+    min-height: 20vh;
 }
 
 .controls-position {
@@ -94,6 +92,20 @@ h1 {
 }
 
 @media (min-width: 768px) {
+    .intro-settings {
+        top: 10vh;
+        height: 90vh;
+    }
+    .menu-spacing {
+        min-height: 10vh;
+    }
+    .menu-settings {
+        height: 10vh;
+        background-color: #000000;
+    }
+    #game_info {
+        top: -10vh;
+    }
     .card_style {
         width: 120px;
         height: 180px;
