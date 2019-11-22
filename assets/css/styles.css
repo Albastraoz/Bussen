@@ -52,6 +52,7 @@ h1 {
 .intro-settings {
     top: 0;
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     display: block;
     background-color: #fafafa;
     transition:height 1s ease-out;   
