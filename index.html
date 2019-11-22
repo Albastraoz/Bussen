@@ -47,8 +47,13 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-6 controls-position-6 settings-window">
-                        <div class="dropdown show">
+                    <div class="col-12 controls-position-12 settings-window">
+                        <hr class="settings-divider">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 controls-position-12 settings-window">
+                        <div class="d-inline-block dropdown show">
                             <a class="btn btn-primary dropdown-toggle" href="#" role="button"
                                 id="dropdownMenuLinkBackground" data-toggle="dropdown" aria-haspopup="true"
                                 aria-expanded="false">
@@ -59,9 +64,7 @@
                                 <a class="dropdown-item" href="#" onClick="changeBackgroundRed();">Red Table</a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-6 controls-position-6 settings-window text-right">
-                        <div class="dropdown show">
+                        <div class="d-inline-block dropdown show">
                             <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLinkColor"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Color Scheme
@@ -74,33 +77,39 @@
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div class="col-12 text-color">
+                    <div class="col-12 controls-position-12 settings-window">
+                        <hr class="settings-divider">
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 text-color settings-window">
                         <form onsubmit="changeSettings(); return false;">
                             <div class="row justify-content-center form-group">
-                                <div class="col-12 controls-position-12 settings-window">
+                                <div class="col-12 controls-position-12">
                                     <label for="player_name_settings">Change name</label>
-                                    <input id="player_name_settings" class="form-control" type="text" placeholder="John">
+                                    <input id="player_name_settings" class="form-control" type="text"
+                                        placeholder="John">
                                 </div>
                             </div>
                             <div class="row justify-content-center form-group">
-                                <div class="col-6 controls-position-6 settings-window">
+                                <div class="col-6 controls-position-6">
                                     <label for="round_one_rule_settings">Rule for round 1</label>
                                     <input id="round_one_rule_settings" class="form-control" type="text"
                                         placeholder="Take a zip">
                                 </div>
-                                <div class="col-6 controls-position-6 settings-window">
+                                <div class="col-6 controls-position-6">
                                     <label for="round_two_rule_settings">Rule for round 2</label>
                                     <input id="round_two_rule_settings" class="form-control" type="text"
                                         placeholder="Take 2 zips">
                                 </div>
                             </div>
                             <div class="row justify-content-center form-group">
-                                <div class="col-6 controls-position-6 settings-window">
+                                <div class="col-6 controls-position-6">
                                     <label for="round_three_rule_settings">Rule for round 3</label>
                                     <input id="round_three_rule_settings" class="form-control" type="text"
                                         placeholder="Take 3 zips">
                                 </div>
-                                <div class="col-6 controls-position-6 settings-window">
+                                <div class="col-6 controls-position-6">
                                     <label for="round_four_rule_settings">Rule for round 4</label>
                                     <input id="round_four_rule_settings" class="form-control" type="text"
                                         placeholder="Take a shot">
@@ -108,7 +117,7 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-12 controls-position-12">
-                                    <button type="submit" class="btn btn-primary btn-lg settings-window">Save settings</button>
+                                    <button type="submit" class="btn btn-primary btn-lg">Save</button><button type="button" id="close_settings" class="float-right btn btn-secondary btn-lg">Close</button>
                                 </div>
                             </div>
                         </form>
@@ -119,36 +128,39 @@
         </div>
         <div class="container-fluid intro-settings fixed-top">
             <div id="intro_text" class="row justify-content-center text-color">
-                <div class="col-12 col-lg-6 position-absolute text-center">
+                <div class="col-12 col-md-8 col-lg-6 position-absolute">
                     <div class="row">
                         <div class="col-12">
-                            <h1>How to play Bussen!</h1>
+                            <img class="logo-settings" src="assets/images/schoolbus.png" />
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
+                            <h1>Play Bussen!</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12 col-lg-6">
                             <p>This card game is all about luck! The goal is to reach the last round in which you have
                                 to
-                                guess the color of the card every round.</p>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-12">
-                            <p>In the top of the screen you will be able to change color from 'RED' to 'BLACK' with
-                                black as
-                                default. If your guess is wrong you will need to do a specific action which will be
+                                guess the color of the card every round. If your guess is wrong you will need to do a specific action which will be
                                 specified below.</p>
                         </div>
+                        <div class="col-12 col-lg-6">
+                            <p>In the top of the screen you will be able to change color from 'RED' to 'BLACK' with
+                                black as default.</p>
+                                <p>TIP: counting cards is possible!</p>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <h2>We would like some information from you before you start:</h2>
+                            <h2>Settings</h2>
                         </div>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-12">
                             <form onsubmit="startGame(); return false;">
-                                <div class="row justify-content-center form-group">
+                                <div class="row form-group">
                                     <div class="col-6">
                                         <label for="player_name">Name*</label>
                                         <input id="player_name" class="form-control" type="text" placeholder="John"

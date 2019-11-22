@@ -24,7 +24,6 @@ var succeedAmount = 0;
 
 var randomCards = new Array();
 var scrollSize;
-var settingsScreen = false;
 
 var dealCards = new Audio("assets/sounds/deal_cards.wav");
 var flipCard = new Audio("assets/sounds/flip_card.wav");
@@ -39,12 +38,14 @@ function changeColorDark() {
     $('.text-color').css('color','#ffffff');
     $('.intro-settings').css('background-color','#000000');
     $('.menu-settings').css('background-color','#000000');
+    $('.settings-divider').css('background-color','#fafafa');
 };
 
 function changeColorLight() {
     $('.text-color').css('color','#000000');
     $('.intro-settings').css('background-color','#fafafa');
     $('.menu-settings').css('background-color','#fafafa');
+    $('.settings-divider').css('background-color','#000000');
 };
 
 function changeBackgroundGreen() {
@@ -84,7 +85,24 @@ function changeSettings() {
     } else {
         rule4 = $('#round_four_rule_settings').val();
     }
+    $('#settings_button').css('display','block');
+    $('.menu-settings').css('height','100px');
+    $('.settings-window').css('display','none');
+
+    if ($('#player_name_settings').val() == '' && $('#round_one_rule_settings').val() == '' && $('#round_two_rule_settings').val() == '' && $('#round_three_rule_settings').val() == '' && $('#round_four_rule_settings').val() == '') {
+        $('#warning_textfield').empty('');
+        $('#warning_textfield').append('<p class="warning-text-spacing">No changes made.</p>');
+    } else {
+        $('#warning_textfield').empty('');
+        $('#warning_textfield').append('<p class="warning-text-spacing">Changes saved.</p>');
+    }
 }
+
+$('#close_settings').click(function () {
+    $('#settings_button').css('display','block');
+    $('.menu-settings').css('height','100px');
+    $('.settings-window').css('display','none');
+});
 
 function startGame() {
     $('.intro-settings').css('overflow','hidden');
@@ -130,7 +148,7 @@ function startGame() {
             $('#btn_card' + i).prop('disabled', false);
         }
     }
-    $('#warning_textfield').append(`<p>Good luck ${playerName}!</p>`);
+    $('#warning_textfield').append(`<p class="warning-text-spacing">Good luck ${playerName}!</p>`);
 
     console.log(randomCards.toString());
     console.log(`-- Create random Cards --`);
@@ -140,6 +158,13 @@ $('#modal_message').on('hidden.bs.modal', function (e) {
     dealCards.play();
     $('#warning_textfield').empty();
     window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    if ($('#player_name_next').val() == '') {
+    } else {
+        playerName = $('#player_name_next').val();
+        $('#warning_textfield').append(`<p class="warning-text-spacing">Good luck ${playerName}!</p>`);
+        $('#player_name_next').removeAttr('value');
+    }
 
     for (i = 0; i < 10; i++) {
         $('#card' + i).empty();
@@ -157,22 +182,11 @@ $('#modal_message').on('hidden.bs.modal', function (e) {
 });
 
 $('#settings_button').click(function () {
-    if (settingsScreen == false) {
-        settingsScreen = true;
-    } else {
-        settingsScreen = false;
-    }
-
-    if (settingsScreen == true) {
-        $('.menu-settings').css('height','500px');
-        setTimeout( function(){ 
-            $('.settings-window').css('display','block');
-          }  , 1000 );
-    } else {
-        $('.menu-settings').css('height','100px');
-        $('.settings-window').css('display','none');
-    }
-    
+    $('#settings_button').css('display','none');
+    $('.menu-settings').css('height','564px');
+    setTimeout( function(){ 
+        $('.settings-window').css('display','block');
+      }  , 1000 );
 });
 
 $('#reset_button').click(function () {
@@ -259,10 +273,11 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
             $('#message_header').empty();
             $('#message_body').empty();
             $('#message_header').append(`<h5>Congratulations! You WON and may leave the buss!</h5>`);
-            $('#message_body').append(`<p>You choose <b>${yourChoice}</b></p><img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png"></img>`);
+            $('#message_body').append(`<p>Who will be next to enter the buss?</p><input id="player_name_next" class="form-control" type="text"
+                placeholder="John">`);
             $('#modal_message').modal('show');
         } else {
-            $('#warning_textfield').append('<p>You were CORRECT! Choose your next card.</p>');
+            $('#warning_textfield').append('<p class="warning-text-spacing">CORRECT! Next card.</p>');
         }
     } else {
         for (i = roundIdentifier; i < 11; i++) {
