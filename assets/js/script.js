@@ -28,6 +28,18 @@ var scrollSize;
 var dealCards = new Audio("assets/sounds/deal_cards.wav");
 var flipCard = new Audio("assets/sounds/flip_card.wav");
 
+$('body').on('touchstart', function(e) {
+    $('.scroll-fix').css("pointer-events","auto");
+});
+$('body').on('touchmove', function(e) {
+    $('.scroll-fix').css("pointer-events","none");
+});
+$('body').on('touchend', function(e) {
+    setTimeout(function() {
+        $('.scroll-fix').css("pointer-events", "none");
+    },0);
+});
+
 if (window.matchMedia('(min-width: 768px)').matches) {
     scrollSize = 100;
 } else {
