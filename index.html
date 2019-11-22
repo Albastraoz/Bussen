@@ -22,24 +22,98 @@
     <header>
         <div class="container-fluid menu-settings fixed-top">
             <div id="game_info">
-                <div class="row justify-content-center my-2">
-                    <div class="col-4 controls-position">
+                <div class="row justify-content-center mt-2">
+                    <div class="col-4 controls-position-4">
                         <button id="reset_button" class="btn btn-primary">Restart</button>
                     </div>
 
-                    <div class="col-4 controls-position text-center">
+                    <div class="col-4 controls-position-4">
                         <input id="color_choice" type="checkbox" onchange="changeColor();" data-toggle="toggle"
                             data-on="Red" data-off="Black" data-onstyle="danger" data-offstyle="dark">
                     </div>
 
-                    <div class="col-4 controls-position text-right text-color">
-                        <div id="showStats">
-                            <p>Attempts: 0<br>Wins: 0</p>
+                    <div class="col-4 controls-position-4 text-right text-color">
+                        <div id="show_stats">
+                            <p class="stats-setting">Tries: 0<br>Wins: 0</p>
                         </div>
                     </div>
                 </div>
                 <div class="row justify-content-center">
-                    <div id="warning_textfield" class="text-color"></div>
+                    <div class="col-4 controls-position-4 iphone5-position-fix">
+                        <button id="settings_button" class="btn btn-primary">Settings</button>
+                    </div>
+                    <div class="col-8 controls-position-8">
+                        <div id="warning_textfield" class="text-color"></div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-6 controls-position-6 settings-window">
+                        <div class="dropdown show">
+                            <a class="btn btn-primary dropdown-toggle" href="#" role="button"
+                                id="dropdownMenuLinkBackground" data-toggle="dropdown" aria-haspopup="true"
+                                aria-expanded="false">
+                                Background
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkBackground">
+                                <a class="dropdown-item" href="#" onClick="changeBackgroundGreen();">Green Table</a>
+                                <a class="dropdown-item" href="#" onClick="changeBackgroundRed();">Red Table</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-6 controls-position-6 settings-window text-right">
+                        <div class="dropdown show">
+                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLinkColor"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Color Scheme
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkColor">
+                                <a class="dropdown-item" href="#" onClick="changeColorDark();">Dark</a>
+                                <a class="dropdown-item" href="#" onClick="changeColorLight();">Light</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-12 text-color">
+                        <form onsubmit="changeSettings(); return false;">
+                            <div class="row justify-content-center form-group">
+                                <div class="col-12 controls-position-12 settings-window">
+                                    <label for="player_name_settings">Change name</label>
+                                    <input id="player_name_settings" class="form-control" type="text" placeholder="John">
+                                </div>
+                            </div>
+                            <div class="row justify-content-center form-group">
+                                <div class="col-6 controls-position-6 settings-window">
+                                    <label for="round_one_rule_settings">Rule for round 1</label>
+                                    <input id="round_one_rule_settings" class="form-control" type="text"
+                                        placeholder="Take a zip">
+                                </div>
+                                <div class="col-6 controls-position-6 settings-window">
+                                    <label for="round_two_rule_settings">Rule for round 2</label>
+                                    <input id="round_two_rule_settings" class="form-control" type="text"
+                                        placeholder="Take 2 zips">
+                                </div>
+                            </div>
+                            <div class="row justify-content-center form-group">
+                                <div class="col-6 controls-position-6 settings-window">
+                                    <label for="round_three_rule_settings">Rule for round 3</label>
+                                    <input id="round_three_rule_settings" class="form-control" type="text"
+                                        placeholder="Take 3 zips">
+                                </div>
+                                <div class="col-6 controls-position-6 settings-window">
+                                    <label for="round_four_rule_settings">Rule for round 4</label>
+                                    <input id="round_four_rule_settings" class="form-control" type="text"
+                                        placeholder="Take a shot">
+                                </div>
+                            </div>
+                            <div class="row justify-content-center">
+                                <div class="col-12 controls-position-12">
+                                    <button type="submit" class="btn btn-primary btn-lg settings-window">Save settings</button>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="footer-spacing"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -47,19 +121,29 @@
             <div id="intro_text" class="row justify-content-center text-color">
                 <div class="col-12 col-lg-6 position-absolute text-center">
                     <div class="row">
-                        <h1>How to play Bussen!</h1>
+                        <div class="col-12">
+                            <h1>How to play Bussen!</h1>
+                        </div>
                     </div>
                     <div class="row">
-                        <p>This card game is all about luck! The goal is to reach the last round in which you have to
-                            guess the color of the card every round.</p>
+                        <div class="col-12">
+                            <p>This card game is all about luck! The goal is to reach the last round in which you have
+                                to
+                                guess the color of the card every round.</p>
+                        </div>
                     </div>
                     <div class="row">
-                        <p>In the top of the screen you will be able to change color from 'RED' to 'BLACK' with black as
-                            default. If your guess is wrong you will need to do a specific action which will be
-                            specified below.</p>
+                        <div class="col-12">
+                            <p>In the top of the screen you will be able to change color from 'RED' to 'BLACK' with
+                                black as
+                                default. If your guess is wrong you will need to do a specific action which will be
+                                specified below.</p>
+                        </div>
                     </div>
                     <div class="row">
-                        <h2>We would like some information from you before you start:</h2>
+                        <div class="col-12">
+                            <h2>We would like some information from you before you start:</h2>
+                        </div>
                     </div>
                     <div class="row justify-content-center">
                         <div class="col-12">
@@ -97,6 +181,7 @@
                                 </div>
                                 <button type="submit" class="btn btn-success btn-lg">Start the game!</button>
                             </form>
+                            <div class="footer-spacing"></div>
                         </div>
                     </div>
                 </div>

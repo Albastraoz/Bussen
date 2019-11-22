@@ -7,9 +7,9 @@ h1 {
 }
 
 #game_info {
-    position: absolute;
+    position: relative;
     width: 100%;
-    top: -20vh;
+    top: -100px;
     transition:top 1s ease-out;   
     -moz-transition:top 1s ease-out;   
     -webkit-transition:top 1s ease-out;
@@ -50,27 +50,59 @@ h1 {
 }
 
 .intro-settings {
-    top: 20vh;
+    top: 0;
     overflow: auto;
     display: block;
     background-color: #000000;
     transition:height 1s ease-out;   
     -moz-transition:height 1s ease-out;   
     -webkit-transition:height 1s ease-out;
-    height: 80vh;
+    height: 100vh;
 }
 
 .menu-settings {
-    height: 20vh;
+    height: 100px;
+    transition:height 1s ease-out;   
+    -moz-transition:height 1s ease-out;   
+    -webkit-transition:height 1s ease-out;
     background-color: #000000;
 }
 
 .menu-spacing {
-    min-height: 20vh;
+    min-height: 100px;
 }
 
-.controls-position {
+.settings-window {
+    margin-top: 10px;
+    display: none;
+}
+
+.stats-setting {
+    margin: 0;
+}
+
+.footer-spacing {
+    height: 30px;
+}
+
+.controls-position-4 {
     max-width: 200px;
+}
+
+.controls-position-6 {
+    max-width: 300px;
+}
+
+.controls-position-8 {
+    max-width: 400px;
+}
+
+.controls-position-12 {
+    max-width: 600px;
+}
+
+.iphone5-position-fix {
+    padding-right: 0;
 }
 
 .text-color {
@@ -92,20 +124,6 @@ h1 {
 }
 
 @media (min-width: 768px) {
-    .intro-settings {
-        top: 10vh;
-        height: 90vh;
-    }
-    .menu-spacing {
-        min-height: 10vh;
-    }
-    .menu-settings {
-        height: 10vh;
-        background-color: #000000;
-    }
-    #game_info {
-        top: -10vh;
-    }
     .card_style {
         width: 120px;
         height: 180px;

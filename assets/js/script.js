@@ -24,6 +24,7 @@ var succeedAmount = 0;
 
 var randomCards = new Array();
 var scrollSize;
+var settingsScreen = false;
 
 var dealCards = new Audio("assets/sounds/deal_cards.wav");
 var flipCard = new Audio("assets/sounds/flip_card.wav");
@@ -34,6 +35,26 @@ if (window.matchMedia('(min-width: 768px)').matches) {
     scrollSize = 0;
 }
 
+function changeColorDark() {
+    $('.text-color').css('color','#ffffff');
+    $('.intro-settings').css('background-color','#000000');
+    $('.menu-settings').css('background-color','#000000');
+};
+
+function changeColorLight() {
+    $('.text-color').css('color','#000000');
+    $('.intro-settings').css('background-color','#fafafa');
+    $('.menu-settings').css('background-color','#fafafa');
+};
+
+function changeBackgroundGreen() {
+    $('.background-styling').css('background','url("assets/images/background_texture_green.jpg") no-repeat center center fixed');
+};
+
+function changeBackgroundRed() {
+    $('.background-styling').css('background','url("assets/images/background_texture_red.jpg") no-repeat center center fixed');
+};
+
 function changeColor() {
     if ($('#color_choice').is(':checked')) {
         yourChoice = `RED`;
@@ -41,6 +62,29 @@ function changeColor() {
         yourChoice = `BLACK`;
     }
 };
+
+function changeSettings() {
+    if ($('#player_name_settings').val() == '') {
+    } else {
+        playerName = $('#player_name_settings').val();
+    }
+    if ($('#round_one_rule_settings').val() == '') {
+    } else {
+        rule1 = $('#round_one_rule_settings').val();
+    }
+    if ($('#round_two_rule_settings').val() == '') {
+    } else {
+        rule2 = $('#round_two_rule_settings').val();
+    }
+    if ($('#round_three_rule_settings').val() == '') {
+    } else {
+        rule3 = $('#round_three_rule_settings').val();
+    }
+    if ($('#round_four_rule_settings').val() == '') {
+    } else {
+        rule4 = $('#round_four_rule_settings').val();
+    }
+}
 
 function startGame() {
     $('.intro-settings').css('overflow','hidden');
@@ -110,6 +154,25 @@ $('#modal_message').on('hidden.bs.modal', function (e) {
             $('#btn_card' + i).prop('disabled', false);
         }
     }
+});
+
+$('#settings_button').click(function () {
+    if (settingsScreen == false) {
+        settingsScreen = true;
+    } else {
+        settingsScreen = false;
+    }
+
+    if (settingsScreen == true) {
+        $('.menu-settings').css('height','500px');
+        setTimeout( function(){ 
+            $('.settings-window').css('display','block');
+          }  , 1000 );
+    } else {
+        $('.menu-settings').css('height','100px');
+        $('.settings-window').css('display','none');
+    }
+    
 });
 
 $('#reset_button').click(function () {
@@ -218,8 +281,8 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
         $('#modal_message').modal('show');
     }
 
-    $('#showStats').empty();
-    $('#showStats').append(`<p>Attempts: ${attemptAmount}<br>Wins: ${succeedAmount}</p>`);
+    $('#show_stats').empty();
+    $('#show_stats').append(`<p class="stats-setting">Tries: ${attemptAmount}<br>Wins: ${succeedAmount}</p>`);
 
     playedCards.push(randomCards[cardIdentifier]);
     randomCards.splice(cardIdentifier, 1);
