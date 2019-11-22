@@ -23,11 +23,11 @@
         <div class="container-fluid menu-settings fixed-top">
             <div id="game_info">
                 <div class="row justify-content-center mt-2">
-                    <div class="col-4 controls-position-4">
+                    <div class="col-4 controls-position-4  iphone5-position-fix">
                         <button id="reset_button" class="btn btn-primary">Restart</button>
                     </div>
 
-                    <div class="col-4 controls-position-4">
+                    <div class="col-4 controls-position-4  iphone5-position-fix">
                         <input id="color_choice" type="checkbox" onchange="changeColor();" data-toggle="toggle"
                             data-on="Red" data-off="Black" data-onstyle="danger" data-offstyle="dark">
                     </div>
@@ -128,7 +128,7 @@
         </div>
         <div class="container-fluid intro-settings fixed-top">
             <div id="intro_text" class="row justify-content-center text-color">
-                <div class="col-12 col-md-8 col-lg-6 position-absolute">
+                <div class="col-12 col-md-8 col-lg-6">
                     <div class="row">
                         <div class="col-12">
                             <img class="logo-settings" src="assets/images/schoolbus.png" />
@@ -162,32 +162,31 @@
                             <form onsubmit="startGame(); return false;">
                                 <div class="row form-group">
                                     <div class="col-6">
-                                        <label for="player_name">Name*</label>
-                                        <input id="player_name" class="form-control scroll-fix" type="text" placeholder="John"
-                                            required>
+                                        <label for="player_name">Name</label>
+                                        <input id="player_name" class="form-control" type="text" placeholder="John">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center form-group">
                                     <div class="col-6">
                                         <label for="round_one_rule">Rule for round 1</label>
-                                        <input id="round_one_rule" class="form-control scroll-fix" type="text"
+                                        <input id="round_one_rule" class="form-control" type="text"
                                             placeholder="Take a zip">
                                     </div>
                                     <div class="col-6">
                                         <label for="round_two_rule">Rule for round 2</label>
-                                        <input id="round_two_rule" class="form-control scroll-fix" type="text"
+                                        <input id="round_two_rule" class="form-control" type="text"
                                             placeholder="Take 2 zips">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center form-group">
                                     <div class="col-6">
                                         <label for="round_three_rule">Rule for round 3</label>
-                                        <input id="round_three_rule" class="form-control scroll-fix" type="text"
+                                        <input id="round_three_rule" class="form-control" type="text"
                                             placeholder="Take 3 zips">
                                     </div>
                                     <div class="col-6">
                                         <label for="round_four_rule">Rule for round 4</label>
-                                        <input id="round_four_rule" class="form-control scroll-fix" type="text"
+                                        <input id="round_four_rule" class="form-control" type="text"
                                             placeholder="Take a shot">
                                     </div>
                                 </div>

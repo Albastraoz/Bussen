@@ -28,7 +28,7 @@ var scrollSize;
 var dealCards = new Audio("assets/sounds/deal_cards.wav");
 var flipCard = new Audio("assets/sounds/flip_card.wav");
 
-$('body').on('touchstart', function(e) {
+/*$('body').on('touchstart', function(e) {
     $('.scroll-fix').css("pointer-events","auto");
 });
 $('body').on('touchmove', function(e) {
@@ -38,7 +38,7 @@ $('body').on('touchend', function(e) {
     setTimeout(function() {
         $('.scroll-fix').css("pointer-events", "none");
     },0);
-});
+});*/
 
 if (window.matchMedia('(min-width: 768px)').matches) {
     scrollSize = 100;
@@ -119,6 +119,8 @@ $('#close_settings').click(function () {
 function startGame() {
     $('.intro-settings').css('overflow','hidden');
     $('.intro-settings').css('height','0px');
+    $('.intro-settings').css('z-index','1');
+    $('.menu-settings').css('z-index','2');
     $('#game_info').css('top','0');
     $('body').css('overflow','auto');
 
@@ -318,6 +320,8 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
             cardDeck.push(playedCards[i]);
         }
         playedCards = [];
+        $('#warning_textfield').empty();
+        $('#warning_textfield').append('<p class="warning-text-spacing">Card deck shuffled.</p>');
     }
     randomCards.splice(cardIdentifier, 0, cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1));
     console.log(randomCards.toString());

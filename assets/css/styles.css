@@ -51,6 +51,8 @@ h1 {
 
 .intro-settings {
     top: 0;
+    position: absolute;
+    z-index: 2;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     display: block;
@@ -68,6 +70,7 @@ h1 {
 
 .menu-settings {
     height: 100px;
+    z-index: 1;
     transition:height 1s ease-out;   
     -moz-transition:height 1s ease-out;   
     -webkit-transition:height 1s ease-out;
@@ -129,10 +132,6 @@ h1 {
 .warning-text-spacing {
     margin-top: 10px;
     margin-bottom: 0;
-}
-
-.scroll-fix {
-    pointer-events; none;
 }
 
 .modal-header {
