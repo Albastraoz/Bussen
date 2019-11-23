@@ -97,8 +97,10 @@ function changeSettings() {
     $('#settings_button').css('display','block');
     $('.menu-settings').css('height','100px');
     $('.settings-window').css('display','none');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout( function(){
-        $('#game_info').css('overflow-y','hidden');
+        $('.menu-settings').css('position','fixed');
+        $('.menu-settings').css('overflow-y','hidden');
         $('body').css('overflow','auto');
     }  , 1000 );
 
@@ -116,8 +118,9 @@ $('#settings_button').click(function () {
     $('#settings_button').css('display','none');
     $('.menu-settings').css('height','564px');
     setTimeout( function(){ 
+        $('.menu-settings').css('position','absolute');
         $('.settings-window').css('display','block');
-        $('#game_info').css('overflow-y','auto');
+        $('.menu-settings').css('overflow-y','auto');
         $('body').css('overflow','hidden');
       }  , 1000 );
 });
@@ -127,8 +130,10 @@ $('#close_settings').click(function () {
     $('#settings_button').css('display','block');
     $('.menu-settings').css('height','100px');
     $('.settings-window').css('display','none');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout( function(){
-        $('#game_info').css('overflow-y','hidden');
+        $('.menu-settings').css('position','fixed');
+        $('.menu-settings').css('overflow-y','hidden');
         $('body').css('overflow','auto');
     }  , 1000 );
 });
@@ -139,6 +144,7 @@ function startGame() {
     $('.intro-settings').css('height','0px');
     $('#game_info').css('top','0');
     $('body').css('overflow','auto');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 
     playerName = $('#player_name').val();
     if ($('#round_one_rule').val() == '') {
@@ -344,7 +350,7 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
     // IF THE CARD DECK IS EMPTY THIS WILL PUSH ALL THE PLAYED CARDS INTO THE CARD DECK
     if (cardDeck.length < 1) {
         for (i = 0; i < playedCards.length; i++) {
-            cardDeck.push(playedCards[i]);
+            cardDeck.push(playedCards[i].toString());
         }
         playedCards = [];
         $('#warning_textfield').empty();
@@ -353,6 +359,9 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
     
     // REPLACES THE OLD CARD WITH A NEW ONE
     randomCards.splice(cardIdentifier, 0, cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1));
+    console.log(cardDeck);
+    console.log(cardDeck.toString());
+    console.log(cardDeck.length);
     console.log(randomCards.toString());
     console.log(`Push in new card`);
     console.log(`-------------------------`);

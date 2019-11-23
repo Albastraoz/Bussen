@@ -68,8 +68,6 @@ h1 {
 
 /*-- TOP MENU --*/
 #game_info {
-    position: relative;
-    overflow-x: hidden;
     width: 100%;
     top: -100px;
     transition:top 1s ease-out;   
@@ -97,7 +95,6 @@ h1 {
 }
 
 .intro-settings {
-    top: 0;
     position: absolute;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
@@ -110,12 +107,14 @@ h1 {
 }
 
 .footer-spacing {
-    height: 80px;
+    height: 50px;
 }
 
 /*-- COLLAPSABLE SETTINGS AREA --*/
 .menu-settings {
-    position: absolute;
+    position: fixed;
+    overflow-x: hidden;
+    -webkit-overflow-scrolling: touch;
     height: 100px;
     width: 100%;
     transition:height 1s ease-out;   
