@@ -18,8 +18,8 @@
 </head>
 
 <body>
-
     <header>
+        <!--HERE THE TOP MENU STARTS-->
         <div class="container-fluid menu-settings fixed-top">
             <div id="game_info">
                 <div class="row justify-content-center mt-2">
@@ -46,11 +46,13 @@
                         <div id="warning_textfield" class="text-color"></div>
                     </div>
                 </div>
+                <!--HERE THE COLLAPSABLE SETTINGS AREA BEGINS DEFAULT = DISPLAY: NONE-->
                 <div class="row justify-content-center">
                     <div class="col-12 controls-position-12 settings-window">
                         <hr class="settings-divider">
                     </div>
                 </div>
+                <!--CUSTOM STYLING BUTTONS-->
                 <div class="row justify-content-center">
                     <div class="col-12 controls-position-12 settings-window">
                         <div class="d-inline-block dropdown show">
@@ -81,6 +83,7 @@
                         <hr class="settings-divider">
                     </div>
                 </div>
+                <!--CHANGING RULES AND NAMES FORM-->
                 <div class="row justify-content-center">
                     <div class="col-12 text-color settings-window">
                         <form onsubmit="changeSettings(); return false;">
@@ -126,6 +129,7 @@
                 </div>
             </div>
         </div>
+        <!--HERE BEGINS THE INTRO SCREEN-->
         <div class="container-fluid intro-settings fixed-top">
             <div id="intro_text" class="row justify-content-center text-color">
                 <div class="col-12 col-md-8 col-lg-6">
@@ -157,6 +161,7 @@
                             <h2>Settings</h2>
                         </div>
                     </div>
+                    <!--HERE YOU CAN FILL IN THE BASIC SETTINGS BEFORE THE GAME STARTS-->
                     <div class="row justify-content-center">
                         <div class="col-12">
                             <form onsubmit="startGame(); return false;">
@@ -200,11 +205,13 @@
         </div>
     </header>
 
+    <!--THIS IS WHERE ALL THE CARDS WILL BE PLACED-->
     <div class="container-fluid">
         <div class="menu-spacing"></div>
         <div class="row">
             <div class="col-12 background-styling">
                 <div class="card-height-spacing"></div>
+                <!--ROUND ONE - FIRST 4 CARDS-->
                 <div class="row justify-content-center">
                     <button id="btn_card0" class="btn_card_style">
                         <div id="card0" class="card_box"></div>
@@ -222,7 +229,7 @@
                         <div id="card3" class="card_box"></div>
                     </button>
                 </div>
-
+                <!--ROUND TWO - NEXT 3 CARDS-->
                 <div class="card-height-spacing"></div>
                 <div class="row justify-content-center">
                     <button id="btn_card4" class="btn_card_style">
@@ -237,7 +244,7 @@
                         <div id="card6" class="card_box"></div>
                     </button>
                 </div>
-
+                <!--ROUND THREE - 2 MORE CARDS-->
                 <div class="card-height-spacing"></div>
                 <div class="row justify-content-center">
                     <button id="btn_card7" class="btn_card_style">
@@ -248,7 +255,7 @@
                         <div id="card8" class="card_box"></div>
                     </button>
                 </div>
-
+                <!--ROUND FOUR - FINAL CARD-->
                 <div class="card-height-spacing"></div>
                 <div class="row justify-content-center">
                     <button id="btn_card9" class="btn_card_style">
@@ -258,7 +265,7 @@
             </div>
         </div>
     </div>
-
+    <!--THIS IS THE POPUP SCREEN FOR WHEN YOU LOSE OR WIN THE GAME-->
     <div id="modal_message" class="modal fade" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-sm modal-dialog-centered" role="document">
             <div class="modal-content">

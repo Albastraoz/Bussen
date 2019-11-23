@@ -1,3 +1,4 @@
+// SETTING ALL THE VARIABLES FOR PROGRAM
 var cardDeck = ['sa', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sj', 'sq', 'sk', 'da', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'dj', 'dq', 'dk', 'ca', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cj', 'cq', 'ck', 'ha', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'hj', 'hq', 'hk'];
 var redCards = ['da', 'd2', 'd3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd9', 'd10', 'dj', 'dq', 'dk', 'ha', 'h2', 'h3', 'h4', 'h5', 'h6', 'h7', 'h8', 'h9', 'h10', 'hj', 'hq', 'hk'];
 var blackCards = ['sa', 's2', 's3', 's4', 's5', 's6', 's7', 's8', 's9', 's10', 'sj', 'sq', 'sk', 'ca', 'c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c9', 'c10', 'cj', 'cq', 'ck'];
@@ -25,27 +26,18 @@ var succeedAmount = 0;
 var randomCards = new Array();
 var scrollSize;
 
+// THESE ARE THE SOUNDS FOR DEALING AND FLIPPING CARDS
 var dealCards = new Audio("assets/sounds/deal_cards.wav");
 var flipCard = new Audio("assets/sounds/flip_card.wav");
 
-/*$('body').on('touchstart', function(e) {
-    $('.scroll-fix').css("pointer-events","auto");
-});
-$('body').on('touchmove', function(e) {
-    $('.scroll-fix').css("pointer-events","none");
-});
-$('body').on('touchend', function(e) {
-    setTimeout(function() {
-        $('.scroll-fix').css("pointer-events", "none");
-    },0);
-});*/
-
+// CHANGES THE SCROLL DOWN WINDOW WHEN CARD IS CLICKED
 if (window.matchMedia('(min-width: 768px)').matches) {
     scrollSize = 100;
 } else {
     scrollSize = 0;
 }
 
+// EXECUTED WHEN DARK SCHEME IS CHOSEN IN SETTINGS
 function changeColorDark() {
     $('.text-color').css('color','#ffffff');
     $('.intro-settings').css('background-color','#000000');
@@ -53,6 +45,7 @@ function changeColorDark() {
     $('.settings-divider').css('background-color','#fafafa');
 };
 
+// EXECUTED WHEN LIGHT SCHEME IS CHOSEN IN SETTINGS
 function changeColorLight() {
     $('.text-color').css('color','#000000');
     $('.intro-settings').css('background-color','#fafafa');
@@ -60,14 +53,17 @@ function changeColorLight() {
     $('.settings-divider').css('background-color','#000000');
 };
 
+// EXECUTED WHEN GREEN BACKGROUND IS CHOSEN IN SETTINGS
 function changeBackgroundGreen() {
     $('.background-styling').css('background','url("assets/images/background_texture_green.jpg") no-repeat center center fixed');
 };
 
+// EXECUTED WHEN RED BACKGROUND IS CHOSEN IN SETTINGS
 function changeBackgroundRed() {
     $('.background-styling').css('background','url("assets/images/background_texture_red.jpg") no-repeat center center fixed');
 };
 
+// CHANGE YOUR PREDICTION BETWEEN RED AND BLACK
 function changeColor() {
     if ($('#color_choice').is(':checked')) {
         yourChoice = `RED`;
@@ -76,6 +72,7 @@ function changeColor() {
     }
 };
 
+// SAVE SETTINGS FUNCTION
 function changeSettings() {
     if ($('#player_name_settings').val() == '') {
     } else {
@@ -100,6 +97,10 @@ function changeSettings() {
     $('#settings_button').css('display','block');
     $('.menu-settings').css('height','100px');
     $('.settings-window').css('display','none');
+    setTimeout( function(){
+        $('#game_info').css('overflow-y','hidden');
+        $('body').css('overflow','auto');
+    }  , 1000 );
 
     if ($('#player_name_settings').val() == '' && $('#round_one_rule_settings').val() == '' && $('#round_two_rule_settings').val() == '' && $('#round_three_rule_settings').val() == '' && $('#round_four_rule_settings').val() == '') {
         $('#warning_textfield').empty('');
@@ -110,17 +111,32 @@ function changeSettings() {
     }
 }
 
+// EXECUTED WHEN SETTINGS BUTTON IS PRESSED
+$('#settings_button').click(function () {
+    $('#settings_button').css('display','none');
+    $('.menu-settings').css('height','564px');
+    setTimeout( function(){ 
+        $('.settings-window').css('display','block');
+        $('#game_info').css('overflow-y','auto');
+        $('body').css('overflow','hidden');
+      }  , 1000 );
+});
+
+// WHEN CLOSE BUTTON IS CLICKED IN SETTINGS SCREEN
 $('#close_settings').click(function () {
     $('#settings_button').css('display','block');
     $('.menu-settings').css('height','100px');
     $('.settings-window').css('display','none');
+    setTimeout( function(){
+        $('#game_info').css('overflow-y','hidden');
+        $('body').css('overflow','auto');
+    }  , 1000 );
 });
 
+// WHEN START GAME IS CLICKED ON THE INTRO SCREEN
 function startGame() {
     $('.intro-settings').css('overflow','hidden');
     $('.intro-settings').css('height','0px');
-    $('.intro-settings').css('z-index','1');
-    $('.menu-settings').css('z-index','2');
     $('#game_info').css('top','0');
     $('body').css('overflow','auto');
 
@@ -149,10 +165,12 @@ function startGame() {
     dealCards.play();
     $('#warning_textfield').empty();
 
+    // 10 RANDOM CARDS WILL BE PICKED FROM THE CARD DECK
     for (i = randomCards.length; i < 10; i++) {
         randomCards.push(cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1));
     }
 
+    // BELOW THE CARDS ARE BEING DEALT
     for (i = 0; i < 10; i++) {
         if (i > 3) {
             $('#btn_card' + i).prop('disabled', true);
@@ -168,11 +186,13 @@ function startGame() {
     console.log(`-- Create random Cards --`);
 }
 
+// THIS IS EXECUTED WHEN POPUP MESSAGE IS CLOSED
 $('#modal_message').on('hidden.bs.modal', function (e) {
     dealCards.play();
     $('#warning_textfield').empty();
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
+    // CHECKING FOR A NEW PLAYER NAME
     if ($('#player_name_next').val() == '') {
     } else {
         playerName = $('#player_name_next').val();
@@ -180,10 +200,12 @@ $('#modal_message').on('hidden.bs.modal', function (e) {
         $('#player_name_next').removeAttr('value');
     }
 
+    // CLEARS THE FIELD
     for (i = 0; i < 10; i++) {
         $('#card' + i).empty();
     }
 
+    // DEALS NEW CARDS TO THE TABLE
     for (i = 0; i < 10; i++) {
         if (i > 3) {
             $('#btn_card' + i).prop('disabled', true);
@@ -195,14 +217,7 @@ $('#modal_message').on('hidden.bs.modal', function (e) {
     }
 });
 
-$('#settings_button').click(function () {
-    $('#settings_button').css('display','none');
-    $('.menu-settings').css('height','564px');
-    setTimeout( function(){ 
-        $('.settings-window').css('display','block');
-      }  , 1000 );
-});
-
+// RESETS THE PLAYING FIELD
 $('#reset_button').click(function () {
     dealCards.play();
     $('#warning_textfield').empty();
@@ -223,16 +238,19 @@ $('#reset_button').click(function () {
     }
 });
 
+// THIS IS THE MOST IMPORTAND PART OF THE PROGRAM AND WILL GO DEEPER INTO IT BELOW - THIS IS EXECUTED WHENEVER A CARD IS CLICKED ON
 $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_card7, #btn_card8, #btn_card9').click(function () {
     flipCard.play();
     $('#warning_textfield').empty();
 
+    // THIS WILL CHECK WHICH CARD IS PRESSED AND GIVES THE IDENTIFIER THE CORRESPONDING NUMBER
     for (i = 0; i < 10; i++) {
         if (i == this.id.substr(this.id.length - 1)) {
             cardIdentifier = i;
         }
     }
     
+    // ASSIGNING OTHER SETTINGS TO VARRIABLE DEPENDING ON THE CARD IDENTIFIER ABOVE
     for (i = 0; i < 10; i++) {
         if (cardIdentifier <= 3) {
             roundIdentifier = 0;
@@ -259,6 +277,7 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
         }
     }
 
+    // HERE IT CHECKS WHAT COLOR THE CHOSEN CARD IS
     for (i = 0; i < 26; i++) {
         if (randomCards[cardIdentifier].indexOf(redCards[i]) > -1) {
             correctAnswer = `RED`;
@@ -267,6 +286,7 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
         }
     }
 
+    // HERE IT CHECKS IF YOUR PREDICTION COLOR IS THE SAME AS THE COLOR OF THE CARD
     if (yourChoice === correctAnswer) {
         for (i = roundIdentifier; i < endLoopIdentifier; i++) {
             $('#card' + i).empty();
@@ -282,6 +302,8 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
                 }
             }
         }
+
+        // THIS CHECKS IF THE CHOSEN CARD IS THE ONE IN THE LAST ROUND AND GIVES YOU A WIN MESSAGE IF THAT IS THE CASE
         if (cardIdentifier == 9) {
             succeedAmount = succeedAmount + 1;
             $('#message_header').empty();
@@ -293,6 +315,8 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
         } else {
             $('#warning_textfield').append('<p class="warning-text-spacing">CORRECT! Next card.</p>');
         }
+
+    // THIS IS EXECUTED IF YOUR PREDICTION WAS WRONG
     } else {
         for (i = roundIdentifier; i < 11; i++) {
             $('#card' + i).empty();
@@ -313,8 +337,11 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
     $('#show_stats').empty();
     $('#show_stats').append(`<p class="stats-setting">Tries: ${attemptAmount}<br>Wins: ${succeedAmount}</p>`);
 
+    // TAKES CHOSEN CARD OUT AND PUSHES IT INTO A VARIABLE OF PLAYED CARDS
     playedCards.push(randomCards[cardIdentifier]);
     randomCards.splice(cardIdentifier, 1);
+
+    // IF THE CARD DECK IS EMPTY THIS WILL PUSH ALL THE PLAYED CARDS INTO THE CARD DECK
     if (cardDeck.length < 1) {
         for (i = 0; i < playedCards.length; i++) {
             cardDeck.push(playedCards[i]);
@@ -323,6 +350,8 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
         $('#warning_textfield').empty();
         $('#warning_textfield').append('<p class="warning-text-spacing">Card deck shuffled.</p>');
     }
+    
+    // REPLACES THE OLD CARD WITH A NEW ONE
     randomCards.splice(cardIdentifier, 0, cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1));
     console.log(randomCards.toString());
     console.log(`Push in new card`);
