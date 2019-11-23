@@ -99,7 +99,7 @@ h1 {
 }
 
 .intro-settings {
-    position: absolute;
+    position: fixed;
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     display: block;
