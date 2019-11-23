@@ -3,7 +3,8 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1.0, target-densityDpi=device-dpi">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bussen</title>
 
@@ -120,7 +121,9 @@
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-12 controls-position-12">
-                                    <button type="submit" class="btn btn-primary btn-lg">Save</button><button type="button" id="close_settings" class="float-right btn btn-secondary btn-lg">Close</button>
+                                    <button type="submit" class="btn btn-primary btn-lg">Save</button><button
+                                        type="button" id="close_settings"
+                                        class="float-right btn btn-secondary btn-lg">Close</button>
                                 </div>
                             </div>
                         </form>
@@ -135,7 +138,7 @@
                 <div class="col-12 col-md-8 col-lg-6">
                     <div class="row">
                         <div class="col-12">
-                            <img class="logo-settings" src="assets/images/schoolbus.png" />
+                            <img class="logo-settings" src="assets/images/schoolbus.png" alt="Schoolbus">
                         </div>
                     </div>
                     <div class="row">
@@ -147,18 +150,19 @@
                         <div class="col-12 col-lg-6">
                             <p>This card game is all about luck! The goal is to reach the last round in which you have
                                 to
-                                guess the color of the card every round. If your guess is wrong you will need to do a specific action which will be
+                                guess the color of the card every round. If your guess is wrong you will need to do a
+                                specific action which will be
                                 specified below.</p>
                         </div>
                         <div class="col-12 col-lg-6">
                             <p>In the top of the screen you will be able to change color from 'RED' to 'BLACK' with
                                 black as default.</p>
-                                <p>TIP: counting cards is possible!</p>
+                            <p>TIP: counting cards is possible!</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <h2>Settings</h2>
+                            <h1>Settings</h1>
                         </div>
                     </div>
                     <!--HERE YOU CAN FILL IN THE BASIC SETTINGS BEFORE THE GAME STARTS-->
@@ -214,52 +218,52 @@
                 <!--ROUND ONE - FIRST 4 CARDS-->
                 <div class="row justify-content-center">
                     <button id="btn_card0" class="btn_card_style">
-                        <div id="card0" class="card_box"></div>
+                        <span id="card0" class="card_box"></span>
                     </button>
                     <div class="card-width-spacing"></div>
                     <button id="btn_card1" class="btn_card_style">
-                        <div id="card1" class="card_box"></div>
+                        <span id="card1" class="card_box"></span>
                     </button>
                     <div class="card-width-spacing"></div>
                     <button id="btn_card2" class="btn_card_style">
-                        <div id="card2" class="card_box"></div>
+                        <span id="card2" class="card_box"></span>
                     </button>
                     <div class="card-width-spacing"></div>
                     <button id="btn_card3" class="btn_card_style">
-                        <div id="card3" class="card_box"></div>
+                        <span id="card3" class="card_box"></span>
                     </button>
                 </div>
                 <!--ROUND TWO - NEXT 3 CARDS-->
                 <div class="card-height-spacing"></div>
                 <div class="row justify-content-center">
                     <button id="btn_card4" class="btn_card_style">
-                        <div id="card4" class="card_box"></div>
+                        <span id="card4" class="card_box"></span>
                     </button>
                     <div class="card-width-spacing"></div>
                     <button id="btn_card5" class="btn_card_style">
-                        <div id="card5" class="card_box"></div>
+                        <span id="card5" class="card_box"></span>
                     </button>
                     <div class="card-width-spacing"></div>
                     <button id="btn_card6" class="btn_card_style">
-                        <div id="card6" class="card_box"></div>
+                        <span id="card6" class="card_box"></span>
                     </button>
                 </div>
                 <!--ROUND THREE - 2 MORE CARDS-->
                 <div class="card-height-spacing"></div>
                 <div class="row justify-content-center">
                     <button id="btn_card7" class="btn_card_style">
-                        <div id="card7" class="card_box"></div>
+                        <span id="card7" class="card_box"></span>
                     </button>
                     <div class="card-width-spacing"></div>
                     <button id="btn_card8" class="btn_card_style">
-                        <div id="card8" class="card_box"></div>
+                        <span id="card8" class="card_box"></span>
                     </button>
                 </div>
                 <!--ROUND FOUR - FINAL CARD-->
                 <div class="card-height-spacing"></div>
                 <div class="row justify-content-center">
                     <button id="btn_card9" class="btn_card_style">
-                        <div id="card9" class="card_box"></div>
+                        <span id="card9" class="card_box"></span>
                     </button>
                 </div>
             </div>
@@ -277,7 +281,6 @@
             </div>
         </div>
     </div>
-</body>
 
 <!--HERE I IMPORT JQUERY-->
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -292,6 +295,7 @@
 <!--HERE I IMPORT BOOTSTRAPS SWITCH PLUGIN-->
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 <!--HERE I IMPORT MY OWN JAVASCRIPT-->
-<script type="text/javascript" src="assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 
+</body>
 </html>

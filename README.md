@@ -6,8 +6,8 @@ The game is all about luck with a 50/50 win ratio per round where there are four
 My main goal is to make the game realistic so that you actually have a pack of cards where the program is the dealer.
 In this way it is possible to count cards and beat the game the deeper you get in.
 
-Hosted on [GitHub Pages](https://albastraoz.github.io/bussen/index.html)
-Repository on [GitHub](https://github.com/Albastraoz/bussen)
+Hosted on [GitHub Pages](https://albastraoz.github.io/Bussen/index.html)
+Repository on [GitHub](https://github.com/Albastraoz/Bussen)
 
 ## UX
 
@@ -26,6 +26,11 @@ Expected users of the website are people who want to play an easy card game but 
 ### Design
 On larger screens You will find a picture of a schoolbus because the game is about riding the buss and trying to get off.
 ![Schoolbus](assets/images/schoolbus.png).
+
+For fonts I tried to give it a look with rectangular shapes to fit the game.
+- Fonts:
+    - Titles: font-family: 'Bebas Neue', cursive;
+    - Text: font-family: 'Ubuntu', sans-serif;
 
 Colors and backgrounds are customizable by the user with a default setting.
 - Color schemes: 
@@ -141,7 +146,7 @@ After complete product start to addres coding errors:
 
 ## Deployment
 
-The project is hosted on [GitHub Pages](https://albastraoz.github.io/bussen/index.html)
+The project is hosted on [GitHub Pages](https://albastraoz.github.io/Bussen/index.html)
 
 The process involved:
 - Host a git repository on GitHub. Explained [here](https://help.github.com/en/articles/create-a-repo).
@@ -152,7 +157,7 @@ The process involved:
  
 To deploy your own version of the website:
 - Have git installed
-- Visit the [repository]([GitHub](https://github.com/Albastraoz/bussen))
+- Visit the [repository]([GitHub](https://github.com/Albastraoz/Bussen))
 - Click 'Clone or download' and copy the code for http
 - Open your chosen IDE (Cloud9, VS Code, etc.)
 - Open a terminal in your root directory
@@ -172,9 +177,6 @@ It may take a moment for changes to appear on the hosted website.
 ## Credits
 
 ### Content
-The settings icon is imported from Fontawesome:
-- [Fontawesome](http://www.fontawesome.com/)
-
 Fonts are imported from Google fonts:
 - [Google Fonts](https://fonts.google.com/)
 
