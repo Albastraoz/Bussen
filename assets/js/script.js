@@ -37,7 +37,7 @@ if (window.matchMedia('(min-width: 768px)').matches) {
     scrollSize = 0;
 }
 
-// EXECUTED WHEN DARK SCHEME IS CHOSEN IN SETTINGS
+// EXECUTED WHEN DARK COLOR SCHEME IS CHOSEN IN SETTINGS
 function changeColorDark() {
     $('.text-color').css('color', '#ffffff');
     $('.intro-settings').css('background-color', '#000000');
@@ -45,11 +45,27 @@ function changeColorDark() {
     $('.settings-divider').css('background-color', '#fafafa');
 };
 
-// EXECUTED WHEN LIGHT SCHEME IS CHOSEN IN SETTINGS
+// EXECUTED WHEN LIGHT COLOR SCHEME IS CHOSEN IN SETTINGS
 function changeColorLight() {
     $('.text-color').css('color', '#000000');
     $('.intro-settings').css('background-color', '#fafafa');
     $('.menu-settings').css('background-color', '#fafafa');
+    $('.settings-divider').css('background-color', '#000000');
+};
+
+// EXECUTED WHEN GREEN COLOR SCHEME IS CHOSEN IN SETTINGS
+function changeColorGreen() {
+    $('.text-color').css('color', '#000000');
+    $('.intro-settings').css('background-color', '#52c230');
+    $('.menu-settings').css('background-color', '#52c230');
+    $('.settings-divider').css('background-color', '#000000');
+};
+
+// EXECUTED WHEN ORANGE COLOR SCHEME IS CHOSEN IN SETTINGS
+function changeColorOrange() {
+    $('.text-color').css('color', '#000000');
+    $('.intro-settings').css('background-color', '#e45b00');
+    $('.menu-settings').css('background-color', '#e45b00');
     $('.settings-divider').css('background-color', '#000000');
 };
 
@@ -101,7 +117,6 @@ function changeSettings() {
     $('#round_four_rule_settings').val('');
     $('#settings_button').css('display', 'block');
     $('.menu-settings').css('height', '100px');
-    $('.settings-window').css('display', 'none');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(function () {
         $('.menu-settings').css('position', 'fixed');
@@ -132,6 +147,7 @@ $('#settings_button').click(function () {
 
 // WHEN CLOSE BUTTON IS CLICKED IN SETTINGS SCREEN
 $('#close_settings').click(function () {
+    $('#warning_textfield').empty('');
     $('#player_name_settings').val('');
     $('#round_one_rule_settings').val('');
     $('#round_two_rule_settings').val('');
@@ -139,7 +155,6 @@ $('#close_settings').click(function () {
     $('#round_four_rule_settings').val('');
     $('#settings_button').css('display', 'block');
     $('.menu-settings').css('height', '100px');
-    $('.settings-window').css('display', 'none');
     window.scrollTo({ top: 0, behavior: 'smooth' });
     setTimeout(function () {
         $('.menu-settings').css('position', 'fixed');

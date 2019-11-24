@@ -1,10 +1,10 @@
 # Bussen
 
 This website is my second milestone project about Interactive Frontend Development at Code Institute.
-I've had a long brainstorm session about what to create for this project and decided to create a card game I play with friends sometimes.
+I've had a long brainstorm session about what to create for this project and decided to build a card game I sometimes play with friends.
 The game is all about luck with a 50/50 win ratio per round where there are four rounds in total.
 My main goal is to make the game realistic so that you actually have a pack of cards where the program is the dealer.
-In this way it is possible to count cards and beat the game the deeper you get in.
+In this way it is possible to count cards and beat the game the deeper you get in untill the deck is empty and needs to be reshuffled.
 
 Hosted on [GitHub Pages](https://albastraoz.github.io/Bussen/index.html)
 Repository on [GitHub](https://github.com/Albastraoz/Bussen)
@@ -32,10 +32,14 @@ For fonts I tried to give it a look with rectangular shapes to fit the game.
     - Titles: font-family: 'Bebas Neue', cursive;
     - Text: font-family: 'Ubuntu', sans-serif;
 
-Colors and backgrounds are customizable by the user with a default setting.
+Colors and backgrounds are customizable by the user with a default setting, with an exception to the introduction screen.
+I've chosen to let the user decide the colors so that the application is more interactive which is the main goal of this project.
+- For a neutral but modern look the introduction page has a background of ![#B3B3B3](https://placehold.it/15/B3B3B3/000000?text=+) `#B3B3B3`
 - Color schemes: 
-    - *default* Light: text-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`, background-color ![#FAFAFA](https://placehold.it/15/FAFAFA/000000?text=+) `#FAFAFA`
-    - Dark: text-color ![#FAFAFA](https://placehold.it/15/FAFAFA/000000?text=+) `#FAFAFA`, background-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`
+    - *default* Dark: text-color ![#FAFAFA](https://placehold.it/15/FAFAFA/000000?text=+) `#FAFAFA`, background-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`
+    - Light: text-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`, background-color ![#FAFAFA](https://placehold.it/15/FAFAFA/000000?text=+) `#FAFAFA`
+    - Green: text-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`, background-color ![#52C230](https://placehold.it/15/52C230/000000?text=+) `#52C230`
+    - Orange: text-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`, background-color ![#E45B00](https://placehold.it/15/E45B00/000000?text=+) `#E45B00`
 - Backgrounds:
     - *default* [Green card table texture](https://github.com/Albastraoz/bussen/blob/master/assets/images/background_texture_green.jpg).
     - [Red card table texture](https://github.com/Albastraoz/bussen/blob/master/assets/images/background_texture_red.jpg).
@@ -113,13 +117,17 @@ This project makes use of:
     - Used for browser and dev tools
 - [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/new)
     - Used for browser and dev tools
+- [Safari](https://www.apple.com/safari/)
+    - Used for test purpose
+- [Internet Explorer 11](https://www.microsoft.com/en-us/download/details.aspx?id=41628)
+    - Used for test purpose
 - [Google](https://www.google.com/)
     - **Google** was used for research.
 - [Git](https://git-scm.com/)
     - **Git** used for Version Control
 - [GitHub](https://github.com/)
     - Repository hosted on **GitHub**
-- [Github Pages](https://pattern-projects.github.io/oireachtas-ifd-project/)
+- [Github Pages](https://albastraoz.github.io/Bussen/index.html)
     - Website hosted on **Github Pages**
 - [Am I Responsive](http://ami.responsivedesign.is)
     - Testing responsiveness of the website
@@ -147,10 +155,10 @@ Testing has been done on the following mobile devices:
 - Ipad Pro
 
 Testing has been done in the following browsers:
-- Safari (desktop and mobile)
-- Mozilla Firefox
+- Safari (mobile)
+- Mozilla Firefox (desktop)
 - Google Chrome (desktop and mobile)
-- Internet Explorer 11
+- Internet Explorer 11 (desktop)
 
 ### Coding error testing
 After complete product start to addres coding errors:
@@ -213,5 +221,8 @@ All images direct location:
 Thank you to the following for inspiration, motivation and the direction I needed:
 
 - Seun Owonikoko    @seun_mentor
+- Aart Kaal         *Testing application*
+- Monique Kroon     *Testing application*
+- Yung-Chin Huang   *Testing application*
 - Code Institute
 - Google - your best friend

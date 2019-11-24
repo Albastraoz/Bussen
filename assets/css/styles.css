@@ -1,6 +1,7 @@
-/*-- GENERAL STYLING --*/
+/*-- IMPORTING FONTS FROM GOOGLE --*/
 @import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Ubuntu&display=swap');
 
+/*-- GENERAL STYLING --*/
 body {
     font-family: 'Ubuntu', sans-serif;
     overflow: hidden;
@@ -41,7 +42,7 @@ h1 {
 }
 
 .text-color {
-    color: #000000;
+    color: #fafafa;
 }
 
 /*-- PLAYING CARDS --*/
@@ -79,6 +80,10 @@ h1 {
     -webkit-transition:top 1s ease-out;
 }
 
+.menu-heigth-spacing {
+    min-height: 38px;
+}
+
 .warning-text-spacing {
     margin-top: 10px;
     margin-bottom: 0;
@@ -103,7 +108,7 @@ h1 {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
     display: block;
-    background-color: #fafafa;
+    background-color: #b3b3b3;
     transition:height 1s ease-out;   
     -moz-transition:height 1s ease-out;   
     -webkit-transition:height 1s ease-out;
@@ -124,14 +129,14 @@ h1 {
     transition:height 1s ease-out;   
     -moz-transition:height 1s ease-out;   
     -webkit-transition:height 1s ease-out;
-    background-color: #fafafa;
+    background-color: #000000;
 }
 
 .settings-divider {
     width: 100%;
     height: 2px;
     border: 0px;
-    background-color: #000000;
+    background-color: #fafafa;
 }
 
 .menu-spacing {
@@ -140,7 +145,7 @@ h1 {
 
 .settings-window {
     margin-top: 10px;
-    display: none;
+    /*display: none;*/
 }
 
 /*-- MODAL --*/
