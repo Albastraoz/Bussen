@@ -127,14 +127,30 @@ This project makes use of:
 ## Testing
 
 The website was tested by users regularly and for errors on W3.
+Most bugs and errors came up on mobile IOS devices and have all been addressed.
 
 ### User experience testing 
 Preview was send regularly to people within my social circle and asked for testing.
 
 1. Sending website location to specific users over messaging.
-2. Write down feedback.
-3. Search for possible fixes.
-4. If possible implement solution to error or improve product.
+2. Collecting feedback.
+3. Address and find possible solutions.
+4. Test if solutions fix the specific problem and implement the solution.
+
+Testing has been done on the following mobile devices:
+- Samsung S9+
+- Samsung S7
+- Oneplus 7 Pro
+- Iphone 11
+- Iphone 6
+- Iphone SE
+- Ipad Pro
+
+Testing has been done in the following browsers:
+- Safari (desktop and mobile)
+- Mozilla Firefox
+- Google Chrome (desktop and mobile)
+- Internet Explorer 11
 
 ### Coding error testing
 After complete product start to addres coding errors:

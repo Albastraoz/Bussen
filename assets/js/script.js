@@ -27,8 +27,8 @@ var randomCards = new Array();
 var scrollSize;
 
 // THESE ARE THE SOUNDS FOR DEALING AND FLIPPING CARDS
-var dealCards = new Audio("assets/sounds/deal_cards.wav");
-var flipCard = new Audio("assets/sounds/flip_card.wav");
+var dealCards = new Audio("assets/sounds/deal_cards.mp3");
+var flipCard = new Audio("assets/sounds/flip_card.mp3");
 
 // CHANGES THE SCROLL DOWN WINDOW WHEN CARD IS CLICKED
 if (window.matchMedia('(min-width: 768px)').matches) {
@@ -66,9 +66,9 @@ function changeBackgroundRed() {
 // CHANGE YOUR PREDICTION BETWEEN RED AND BLACK
 function changeColor() {
     if ($('#color_choice').is(':checked')) {
-        yourChoice = `RED`;
+        yourChoice = 'RED';
     } else {
-        yourChoice = `BLACK`;
+        yourChoice = 'BLACK';
     }
 };
 
@@ -94,6 +94,11 @@ function changeSettings() {
     } else {
         rule4 = $('#round_four_rule_settings').val();
     }
+    $('#player_name_settings').val('');
+    $('#round_one_rule_settings').val('');
+    $('#round_two_rule_settings').val('');
+    $('#round_three_rule_settings').val('');
+    $('#round_four_rule_settings').val('');
     $('#settings_button').css('display', 'block');
     $('.menu-settings').css('height', '100px');
     $('.settings-window').css('display', 'none');
@@ -127,6 +132,11 @@ $('#settings_button').click(function () {
 
 // WHEN CLOSE BUTTON IS CLICKED IN SETTINGS SCREEN
 $('#close_settings').click(function () {
+    $('#player_name_settings').val('');
+    $('#round_one_rule_settings').val('');
+    $('#round_two_rule_settings').val('');
+    $('#round_three_rule_settings').val('');
+    $('#round_four_rule_settings').val('');
     $('#settings_button').css('display', 'block');
     $('.menu-settings').css('height', '100px');
     $('.settings-window').css('display', 'none');
@@ -180,13 +190,13 @@ function startGame() {
     for (i = 0; i < 10; i++) {
         if (i > 3) {
             $('#btn_card' + i).prop('disabled', true);
-            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">`);
+            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">');
         } else if (i <= 3) {
-            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png" alt="Playing card">`);
+            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default.png" alt="Playing card">');
             $('#btn_card' + i).prop('disabled', false);
         }
     }
-    $('#warning_textfield').append(`<p class="warning-text-spacing">Good luck ${playerName}!</p>`);
+    $('#warning_textfield').append('<p class="warning-text-spacing">Good luck '+playerName+'!</p>');
 }
 
 // THIS IS EXECUTED WHEN POPUP MESSAGE IS CLOSED
@@ -196,11 +206,11 @@ $('#modal_message').on('hidden.bs.modal', function (e) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // CHECKING FOR A NEW PLAYER NAME
-    if ($('#player_name_next').val() == undefined) {
+    if ($('#player_name_next').val() == undefined || $('#player_name_next').val() == '') {
     } else {
         playerName = $('#player_name_next').val();
-        $('#warning_textfield').append(`<p class="warning-text-spacing">Good luck ${playerName}!</p>`);
-        $('#player_name_next').removeAttr('value');
+        $('#warning_textfield').append('<p class="warning-text-spacing">Good luck '+playerName+'!</p>');
+        $('#player_name_next').val('');
     }
 
     // CLEARS THE FIELD
@@ -212,9 +222,9 @@ $('#modal_message').on('hidden.bs.modal', function (e) {
     for (i = 0; i < 10; i++) {
         if (i > 3) {
             $('#btn_card' + i).prop('disabled', true);
-            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">`);
+            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">');
         } else if (i <= 3) {
-            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png" alt="Playing card">`);
+            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default.png" alt="Playing card">');
             $('#btn_card' + i).prop('disabled', false);
         }
     }
@@ -233,15 +243,15 @@ $('#reset_button').click(function () {
     for (i = 0; i < 10; i++) {
         if (i > 3) {
             $('#btn_card' + i).prop('disabled', true);
-            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">`);
+            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">');
         } else if (i <= 3) {
-            $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png" alt="Playing card">`);
+            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default.png" alt="Playing card">');
             $('#btn_card' + i).prop('disabled', false);
         }
     }
 });
 
-// THIS IS THE MOST IMPORTAND PART OF THE PROGRAM AND WILL GO DEEPER INTO IT BELOW - THIS IS EXECUTED WHENEVER A CARD IS CLICKED ON
+// THIS IS THE MOST IMPORTANT PART OF THE PROGRAM AND WILL GO DEEPER INTO IT BELOW - THIS IS EXECUTED WHENEVER A CARD IS CLICKED ON
 $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_card6, #btn_card7, #btn_card8, #btn_card9').click(function () {
     flipCard.play();
     $('#warning_textfield').empty();
@@ -283,9 +293,9 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
     // HERE IT CHECKS WHAT COLOR THE CHOSEN CARD IS
     for (i = 0; i < 26; i++) {
         if (randomCards[cardIdentifier].indexOf(redCards[i]) > -1) {
-            correctAnswer = `RED`;
+            correctAnswer = 'RED';
         } else if (randomCards[cardIdentifier].indexOf(blackCards[i]) > -1) {
-            correctAnswer = `BLACK`;
+            correctAnswer = 'BLACK';
         }
     }
 
@@ -294,14 +304,14 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
         for (i = roundIdentifier; i < endLoopIdentifier; i++) {
             $('#card' + i).empty();
             if (i > switchIdentifier) {
-                $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default.png" alt="Playing card">`);
+                $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default.png" alt="Playing card">');
                 $('#btn_card' + i).prop('disabled', false);
             } else if (i <= switchIdentifier) {
                 $('#btn_card' + i).prop('disabled', true);
                 if (i == cardIdentifier) {
-                    $('#card' + i).append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png" alt="Playing card">`);
+                    $('#card' + i).append('<img class="card_style" src="assets/images/cards/'+randomCards[cardIdentifier]+'.png" alt="Playing card">');
                 } else {
-                    $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">`);
+                    $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">');
                 }
             }
         }
@@ -311,9 +321,8 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
             succeedAmount = succeedAmount + 1;
             $('#message_header').empty();
             $('#message_body').empty();
-            $('#message_header').append(`<h5>Congratulations! You WON and may leave the buss!</h5>`);
-            $('#message_body').append(`<p>Who will be next to enter the buss?</p><input id="player_name_next" class="form-control" type="text"
-                placeholder="John">`);
+            $('#message_header').append('<h5>Congratulations! You WON and may leave the buss!</h5>');
+            $('#message_body').append('<p>Who will be next to enter the buss?</p><input id="player_name_next" class="form-control" type="text" placeholder="John">');
             $('#modal_message').modal('show');
         } else {
             $('#warning_textfield').append('<p class="warning-text-spacing">CORRECT! Next card.</p>');
@@ -324,21 +333,21 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
         for (i = roundIdentifier; i < 11; i++) {
             $('#card' + i).empty();
             if (i != cardIdentifier) {
-                $('#card' + i).append(`<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">`);
+                $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">');
             }
             $('#btn_card' + i).prop('disabled', true);
         }
-        $('#card' + cardIdentifier).append(`<img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png" alt="Playing card">`);
+        $('#card' + cardIdentifier).append('<img class="card_style" src="assets/images/cards/'+randomCards[cardIdentifier]+'.png" alt="Playing card">');
         attemptAmount = attemptAmount + 1;
         $('#message_header').empty();
         $('#message_body').empty();
-        $('#message_header').append(`<h5>You lost...</h5>`);
-        $('#message_body').append(`<p>You choose <b>${yourChoice}</b>.<br>${roundRule} and try again.</p><img class="card_style" src="assets/images/cards/${randomCards[cardIdentifier]}.png" alt="Playing card">`);
+        $('#message_header').append('<h5>You lost...</h5>');
+        $('#message_body').append('<p>You choose <b>'+yourChoice+'</b>.<br>'+roundRule+' and try again.</p><img class="card_style" src="assets/images/cards/'+randomCards[cardIdentifier]+'.png" alt="Playing card">');
         $('#modal_message').modal('show');
     }
 
     $('#show_stats').empty();
-    $('#show_stats').append(`<p class="stats-setting">Tries: ${attemptAmount}<br>Wins: ${succeedAmount}</p>`);
+    $('#show_stats').append('<p class="stats-setting">Tries: '+attemptAmount+'<br>Wins: '+succeedAmount+'</p>');
 
     // TAKES CHOSEN CARD OUT AND PUSHES IT INTO A VARIABLE OF PLAYED CARDS
     playedCards.push(randomCards[cardIdentifier]);
