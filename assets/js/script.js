@@ -88,27 +88,21 @@ function changeSettings() {
     } else {
         playerName = $('#player_name_settings').val();
     }
-    if ($('#round_one_rule_settings').val() === '') {
+
+    if ($('#player_name_settings').val() === '' && $('#round_one_rule_settings').val() === rule1 && $('#round_two_rule_settings').val() === rule2 && $('#round_three_rule_settings').val() === rule3 && $('#round_four_rule_settings').val() === rule4) {
+        $('#warning_textfield').empty('');
+        $('#warning_textfield').append('<p class="warning-text-spacing">No changes made.</p>');
     } else {
-        rule1 = $('#round_one_rule_settings').val();
+        $('#warning_textfield').empty('');
+        $('#warning_textfield').append('<p class="warning-text-spacing">Changes saved.</p>');
     }
-    if ($('#round_two_rule_settings').val() === '') {
-    } else {
-        rule2 = $('#round_two_rule_settings').val();
-    }
-    if ($('#round_three_rule_settings').val() === '') {
-    } else {
-        rule3 = $('#round_three_rule_settings').val();
-    }
-    if ($('#round_four_rule_settings').val() === '') {
-    } else {
-        rule4 = $('#round_four_rule_settings').val();
-    }
+
+    rule1 = $('#round_one_rule_settings').val();
+    rule2 = $('#round_two_rule_settings').val();
+    rule3 = $('#round_three_rule_settings').val();
+    rule4 = $('#round_four_rule_settings').val();
+
     $('#player_name_settings').val('');
-    $('#round_one_rule_settings').val('');
-    $('#round_two_rule_settings').val('');
-    $('#round_three_rule_settings').val('');
-    $('#round_four_rule_settings').val('');
     $('#settings_button').css('display', 'block');
     $('.menu-settings').css('height', '100px');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -117,18 +111,14 @@ function changeSettings() {
         $('.menu-settings').css('overflow-y', 'hidden');
         $('body').css('overflow', 'auto');
     }, 1000);
-
-    if ($('#player_name_settings').val() === '' && $('#round_one_rule_settings').val() === '' && $('#round_two_rule_settings').val() === '' && $('#round_three_rule_settings').val() === '' && $('#round_four_rule_settings').val() === '') {
-        $('#warning_textfield').empty('');
-        $('#warning_textfield').append('<p class="warning-text-spacing">No changes made.</p>');
-    } else {
-        $('#warning_textfield').empty('');
-        $('#warning_textfield').append('<p class="warning-text-spacing">Changes saved.</p>');
-    }
 }
 
 // EXECUTED WHEN SETTINGS BUTTON IS PRESSED
 $('#settings_button').click(function () {
+    $('#round_one_rule_settings').val(rule1);
+    $('#round_two_rule_settings').val(rule2);
+    $('#round_three_rule_settings').val(rule3);
+    $('#round_four_rule_settings').val(rule4);
     $('#settings_button').css('display', 'none');
     $('.menu-settings').css('height', '600px');
     setTimeout(function () {
@@ -143,10 +133,6 @@ $('#settings_button').click(function () {
 $('#close_settings').click(function () {
     $('#warning_textfield').empty('');
     $('#player_name_settings').val('');
-    $('#round_one_rule_settings').val('');
-    $('#round_two_rule_settings').val('');
-    $('#round_three_rule_settings').val('');
-    $('#round_four_rule_settings').val('');
     $('#settings_button').css('display', 'block');
     $('.menu-settings').css('height', '100px');
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -166,26 +152,15 @@ function startGame() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     playerName = $('#player_name').val();
-    if ($('#round_one_rule').val() === '') {
-        rule1 = 'Take one zip';
-    } else {
-        rule1 = $('#round_one_rule').val();
-    }
-    if ($('#round_two_rule').val() === '') {
-        rule2 = 'Take two zips';
-    } else {
-        rule2 = $('#round_two_rule').val();
-    }
-    if ($('#round_three_rule').val() === '') {
-        rule3 = 'Take three zips';
-    } else {
-        rule3 = $('#round_three_rule').val();
-    }
-    if ($('#round_four_rule').val() === '') {
-        rule4 = 'Take one shot';
-    } else {
-        rule4 = $('#round_four_rule').val();
-    }
+    rule1 = $('#round_one_rule').val();
+    rule2 = $('#round_two_rule').val();
+    rule3 = $('#round_three_rule').val();
+    rule4 = $('#round_four_rule').val();
+
+    $('#round_one_rule_settings').val(rule1);
+    $('#round_two_rule_settings').val(rule2);
+    $('#round_three_rule_settings').val(rule3);
+    $('#round_four_rule_settings').val(rule4);
 
     dealCards.play();
     $('#warning_textfield').empty();
