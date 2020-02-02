@@ -3,16 +3,13 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Bussen</title>
 
     <!--HERE I IMPORTED BOOTSTRAP 4.3 STYLESHEET SOURCE: https://getbootstrap.com/docs/4.3/getting-started/download/-->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
-        rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css" rel="stylesheet">
 
     <!--HERE I IMPORT MY OWN STYLESHEET TO OVERLAP BOOTSTRAPS STYLES AND CREATE MY OWN-->
     <link href="assets/css/styles.css" rel="stylesheet">
@@ -57,26 +54,23 @@
                 <div class="row justify-content-center">
                     <div class="col-12 controls-position-12 settings-window">
                         <div class="d-inline-block dropdown show">
-                            <a class="btn btn-primary dropdown-toggle" href="#" role="button"
-                                id="dropdownMenuLinkBackground" data-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
+                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLinkBackground" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Background
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkBackground">
-                                <a class="dropdown-item" href="#" onClick="changeBackgroundGreen();">Green Table</a>
-                                <a class="dropdown-item" href="#" onClick="changeBackgroundRed();">Red Table</a>
+                                <a class="dropdown-item" href="#" onClick="changeBackground('background_green');">Green Table</a>
+                                <a class="dropdown-item" href="#" onClick="changeBackground('background_red');">Red Table</a>
                             </div>
                         </div>
                         <div class="d-inline-block dropdown show">
-                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLinkColor"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="btn btn-primary dropdown-toggle" href="#" role="button" id="dropdownMenuLinkColor" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 Color Scheme
                             </a>
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuLinkColor">
-                                <a class="dropdown-item" href="#" onClick="changeColorDark();">Dark</a>
-                                <a class="dropdown-item" href="#" onClick="changeColorLight();">Light</a>
-                                <a class="dropdown-item" href="#" onClick="changeColorGreen();">Green</a>
-                                <a class="dropdown-item" href="#" onClick="changeColorOrange();">Orange</a>
+                                <a class="dropdown-item" href="#" onClick="changeColorScheme('dark');">Dark</a>
+                                <a class="dropdown-item" href="#" onClick="changeColorScheme('light');">Light</a>
+                                <a class="dropdown-item" href="#" onClick="changeColorScheme('green');">Green</a>
+                                <a class="dropdown-item" href="#" onClick="changeColorScheme('orange');">Orange</a>
                             </div>
                         </div>
                     </div>
@@ -93,39 +87,33 @@
                             <div class="row justify-content-center form-group">
                                 <div class="col-12 controls-position-12">
                                     <label for="player_name_settings">Change name</label>
-                                    <input id="player_name_settings" class="form-control" type="text"
-                                        placeholder="John">
+                                    <input id="player_name_settings" class="form-control" type="text" placeholder="John">
                                 </div>
                             </div>
                             <div class="row justify-content-center form-group">
                                 <div class="col-6 controls-position-6">
                                     <label for="round_one_rule_settings">Rule for round 1</label>
-                                    <input id="round_one_rule_settings" class="form-control" type="text"
-                                        placeholder="Take a zip">
+                                    <input id="round_one_rule_settings" class="form-control" type="text" placeholder="Take a zip">
                                 </div>
                                 <div class="col-6 controls-position-6">
                                     <label for="round_two_rule_settings">Rule for round 2</label>
-                                    <input id="round_two_rule_settings" class="form-control" type="text"
-                                        placeholder="Take 2 zips">
+                                    <input id="round_two_rule_settings" class="form-control" type="text" placeholder="Take 2 zips">
                                 </div>
                             </div>
                             <div class="row justify-content-center form-group">
                                 <div class="col-6 controls-position-6">
                                     <label for="round_three_rule_settings">Rule for round 3</label>
-                                    <input id="round_three_rule_settings" class="form-control" type="text"
-                                        placeholder="Take 3 zips">
+                                    <input id="round_three_rule_settings" class="form-control" type="text" placeholder="Take 3 zips">
                                 </div>
                                 <div class="col-6 controls-position-6">
                                     <label for="round_four_rule_settings">Rule for round 4</label>
-                                    <input id="round_four_rule_settings" class="form-control" type="text"
-                                        placeholder="Take a shot">
+                                    <input id="round_four_rule_settings" class="form-control" type="text" placeholder="Take a shot">
                                 </div>
                             </div>
                             <div class="row justify-content-center">
                                 <div class="col-12 controls-position-12">
-                                    <button type="submit" class="btn btn-primary btn-lg">Save</button><button
-                                        type="button" id="close_settings"
-                                        class="float-right btn btn-secondary btn-lg">Close</button>
+                                    <button type="submit" class="btn btn-primary btn-lg">Save</button>
+                                    <button type="button" id="close_settings" class="float-right btn btn-secondary btn-lg">Close</button>
                                 </div>
                             </div>
                         </form>
@@ -150,15 +138,10 @@
                     </div>
                     <div class="row">
                         <div class="col-12 col-lg-6">
-                            <p>This card game is all about luck! The goal is to reach the last round in which you have
-                                to
-                                guess the color of the card every round. If your guess is wrong you will need to do a
-                                specific action which will be
-                                specified below.</p>
+                            <p>This card game is all about luck! The goal is to reach the last round in which you have to guess the color of the card every round. If your guess is wrong you will need to do a specific action which will be specified below.</p>
                         </div>
                         <div class="col-12 col-lg-6">
-                            <p>In the top of the screen you will be able to change color from 'RED' to 'BLACK' with
-                                black as default.</p>
+                            <p>In the top of the screen you will be able to change color from 'RED' to 'BLACK' with black as default.</p>
                             <p>TIP: counting cards is possible!</p>
                         </div>
                     </div>
@@ -180,25 +163,21 @@
                                 <div class="row justify-content-center form-group">
                                     <div class="col-6">
                                         <label for="round_one_rule">Rule for round 1</label>
-                                        <input id="round_one_rule" class="form-control" type="text"
-                                            placeholder="Take a zip">
+                                        <input id="round_one_rule" class="form-control" type="text" placeholder="Take a zip">
                                     </div>
                                     <div class="col-6">
                                         <label for="round_two_rule">Rule for round 2</label>
-                                        <input id="round_two_rule" class="form-control" type="text"
-                                            placeholder="Take 2 zips">
+                                        <input id="round_two_rule" class="form-control" type="text placeholder="Take 2 zips">
                                     </div>
                                 </div>
                                 <div class="row justify-content-center form-group">
                                     <div class="col-6">
                                         <label for="round_three_rule">Rule for round 3</label>
-                                        <input id="round_three_rule" class="form-control" type="text"
-                                            placeholder="Take 3 zips">
+                                        <input id="round_three_rule" class="form-control" type="text" placeholder="Take 3 zips">
                                     </div>
                                     <div class="col-6">
                                         <label for="round_four_rule">Rule for round 4</label>
-                                        <input id="round_four_rule" class="form-control" type="text"
-                                            placeholder="Take a shot">
+                                        <input id="round_four_rule" class="form-control" type="text" placeholder="Take a shot">
                                     </div>
                                 </div>
                                 <button type="submit" class="btn btn-success btn-lg">Start the game!</button>
@@ -285,15 +264,10 @@
     </div>
 
 <!--HERE I IMPORT JQUERY-->
-<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-    crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <!--HERE I IMPORT BOOTSTRAPS JAVASCRIPT SOURCE: https://getbootstrap.com/docs/4.3/getting-started/download/-->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <!--HERE I IMPORT BOOTSTRAPS SWITCH PLUGIN-->
 <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 <!--HERE I IMPORT MY OWN JAVASCRIPT-->

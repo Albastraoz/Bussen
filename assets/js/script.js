@@ -37,47 +37,41 @@ if (window.matchMedia('(min-width: 768px)').matches) {
     scrollSize = 0;
 }
 
-// EXECUTED WHEN DARK COLOR SCHEME IS CHOSEN IN SETTINGS
-function changeColorDark() {
-    $('.text-color').css('color', '#ffffff');
-    $('.intro-settings').css('background-color', '#000000');
-    $('.menu-settings').css('background-color', '#000000');
-    $('.settings-divider').css('background-color', '#fafafa');
-};
+// EXECUTED WHEN COLOR SCHEME IS CHANGED
+function changeColorScheme(color) {
+    if (color === 'dark') {
+        $('.text-color').css('color', '#ffffff');
+        $('.intro-settings').css('background-color', '#000000');
+        $('.menu-settings').css('background-color', '#000000');
+        $('.settings-divider').css('background-color', '#fafafa');
+    } else if (color === 'light') {
+        $('.text-color').css('color', '#000000');
+        $('.intro-settings').css('background-color', '#fafafa');
+        $('.menu-settings').css('background-color', '#fafafa');
+        $('.settings-divider').css('background-color', '#000000');
+    } else if (color === 'green') {
+        $('.text-color').css('color', '#000000');
+        $('.intro-settings').css('background-color', '#52c230');
+        $('.menu-settings').css('background-color', '#52c230');
+        $('.settings-divider').css('background-color', '#000000');
+    } else if (color === 'orange') {
+        $('.text-color').css('color', '#000000');
+        $('.intro-settings').css('background-color', '#e45b00');
+        $('.menu-settings').css('background-color', '#e45b00');
+        $('.settings-divider').css('background-color', '#000000');
+    }
+}
 
-// EXECUTED WHEN LIGHT COLOR SCHEME IS CHOSEN IN SETTINGS
-function changeColorLight() {
-    $('.text-color').css('color', '#000000');
-    $('.intro-settings').css('background-color', '#fafafa');
-    $('.menu-settings').css('background-color', '#fafafa');
-    $('.settings-divider').css('background-color', '#000000');
-};
-
-// EXECUTED WHEN GREEN COLOR SCHEME IS CHOSEN IN SETTINGS
-function changeColorGreen() {
-    $('.text-color').css('color', '#000000');
-    $('.intro-settings').css('background-color', '#52c230');
-    $('.menu-settings').css('background-color', '#52c230');
-    $('.settings-divider').css('background-color', '#000000');
-};
-
-// EXECUTED WHEN ORANGE COLOR SCHEME IS CHOSEN IN SETTINGS
-function changeColorOrange() {
-    $('.text-color').css('color', '#000000');
-    $('.intro-settings').css('background-color', '#e45b00');
-    $('.menu-settings').css('background-color', '#e45b00');
-    $('.settings-divider').css('background-color', '#000000');
-};
-
-// EXECUTED WHEN GREEN BACKGROUND IS CHOSEN IN SETTINGS
-function changeBackgroundGreen() {
-    $('.background-styling').css('background', 'url("assets/images/background_texture_green.jpg") no-repeat center center fixed');
-};
-
-// EXECUTED WHEN RED BACKGROUND IS CHOSEN IN SETTINGS
-function changeBackgroundRed() {
-    $('.background-styling').css('background', 'url("assets/images/background_texture_red.jpg") no-repeat center center fixed');
-};
+// EXECUTED WHEN BACKGROUND COLOUR IS CHANGED
+function changeBackground(color) {
+    if (color === 'background_green') {
+        console.log('B green');
+        $('.background-styling').css('background', 'url("assets/images/background_texture_green.jpg") no-repeat center center fixed');
+    } else if (color === 'background_red') {
+        console.log('B red');
+        $('.background-styling').css('background', 'url("assets/images/background_texture_red.jpg") no-repeat center center fixed');
+    }
+}
 
 // CHANGE YOUR PREDICTION BETWEEN RED AND BLACK
 function changeColor() {
@@ -86,27 +80,27 @@ function changeColor() {
     } else {
         yourChoice = 'BLACK';
     }
-};
+}
 
 // SAVE SETTINGS FUNCTION
 function changeSettings() {
-    if ($('#player_name_settings').val() == '') {
+    if ($('#player_name_settings').val() === '') {
     } else {
         playerName = $('#player_name_settings').val();
     }
-    if ($('#round_one_rule_settings').val() == '') {
+    if ($('#round_one_rule_settings').val() === '') {
     } else {
         rule1 = $('#round_one_rule_settings').val();
     }
-    if ($('#round_two_rule_settings').val() == '') {
+    if ($('#round_two_rule_settings').val() === '') {
     } else {
         rule2 = $('#round_two_rule_settings').val();
     }
-    if ($('#round_three_rule_settings').val() == '') {
+    if ($('#round_three_rule_settings').val() === '') {
     } else {
         rule3 = $('#round_three_rule_settings').val();
     }
-    if ($('#round_four_rule_settings').val() == '') {
+    if ($('#round_four_rule_settings').val() === '') {
     } else {
         rule4 = $('#round_four_rule_settings').val();
     }
@@ -124,7 +118,7 @@ function changeSettings() {
         $('body').css('overflow', 'auto');
     }, 1000);
 
-    if ($('#player_name_settings').val() == '' && $('#round_one_rule_settings').val() == '' && $('#round_two_rule_settings').val() == '' && $('#round_three_rule_settings').val() == '' && $('#round_four_rule_settings').val() == '') {
+    if ($('#player_name_settings').val() === '' && $('#round_one_rule_settings').val() === '' && $('#round_two_rule_settings').val() === '' && $('#round_three_rule_settings').val() === '' && $('#round_four_rule_settings').val() === '') {
         $('#warning_textfield').empty('');
         $('#warning_textfield').append('<p class="warning-text-spacing">No changes made.</p>');
     } else {
@@ -172,22 +166,22 @@ function startGame() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     playerName = $('#player_name').val();
-    if ($('#round_one_rule').val() == '') {
+    if ($('#round_one_rule').val() === '') {
         rule1 = 'Take one zip';
     } else {
         rule1 = $('#round_one_rule').val();
     }
-    if ($('#round_two_rule').val() == '') {
+    if ($('#round_two_rule').val() === '') {
         rule2 = 'Take two zips';
     } else {
         rule2 = $('#round_two_rule').val();
     }
-    if ($('#round_three_rule').val() == '') {
+    if ($('#round_three_rule').val() === '') {
         rule3 = 'Take three zips';
     } else {
         rule3 = $('#round_three_rule').val();
     }
-    if ($('#round_four_rule').val() == '') {
+    if ($('#round_four_rule').val() === '') {
         rule4 = 'Take one shot';
     } else {
         rule4 = $('#round_four_rule').val();
@@ -221,7 +215,7 @@ $('#modal_message').on('hidden.bs.modal', function (e) {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     // CHECKING FOR A NEW PLAYER NAME
-    if ($('#player_name_next').val() == undefined || $('#player_name_next').val() == '') {
+    if ($('#player_name_next').val() === undefined || $('#player_name_next').val() === '') {
     } else {
         playerName = $('#player_name_next').val();
         $('#warning_textfield').append('<p class="warning-text-spacing">Good luck '+playerName+'!</p>');
@@ -297,7 +291,7 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
             endLoopIdentifier = 10;
             roundRule = rule3;
             window.scrollTo({ top: scrollSize * 4, behavior: 'smooth' });
-        } else if (cardIdentifier == 9) {
+        } else if (cardIdentifier === 9) {
             roundIdentifier = 9;
             switchIdentifier = 9;
             endLoopIdentifier = 10;
@@ -323,7 +317,7 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
                 $('#btn_card' + i).prop('disabled', false);
             } else if (i <= switchIdentifier) {
                 $('#btn_card' + i).prop('disabled', true);
-                if (i == cardIdentifier) {
+                if (i === cardIdentifier) {
                     $('#card' + i).append('<img class="card_style" src="assets/images/cards/'+randomCards[cardIdentifier]+'.png" alt="Playing card">');
                 } else {
                     $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">');
@@ -332,7 +326,7 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
         }
 
         // THIS CHECKS IF THE CHOSEN CARD IS THE ONE IN THE LAST ROUND AND GIVES YOU A WIN MESSAGE IF THAT IS THE CASE
-        if (cardIdentifier == 9) {
+        if (cardIdentifier === 9) {
             succeedAmount = succeedAmount + 1;
             $('#message_header').empty();
             $('#message_body').empty();
