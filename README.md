@@ -209,6 +209,8 @@ All media is edited by myself in order to fit the website.
 The images for the website are copyright free and taken from:
 - [Wikipedia](https://www.wikipedia.org/)
 - [Needpix](https://www.needpix.com/)
+- [Pixabay](https://pixabay.com/)
+- [Pexels](https://www.pexels.com/)
 
 All images direct location:
 - [background_texture_green.jpg](https://www.needpix.com/photo/1549611/dice-felt-green-casino-gambling-game-gaming-publicdomain-wallpaper)
@@ -216,6 +218,8 @@ All images direct location:
 - [schoolbus.png](https://www.needpix.com/photo/669292/schoolbus-school-education-vehicle-transportation-bus-school-bus)
 - [All vector playing cards](https://commons.wikimedia.org/wiki/File:English_pattern_playing_cards_deck.svg)
 - [card_cover_default.png](https://commons.wikimedia.org/wiki/File:Reverso_baraja_espa%C3%B1ola.svg)
+- [card_cover_goku.png](https://pixabay.com/nl/illustrations/goku-kleuren-anime-comic-kleurboek-4735092/)
+- [card_cover_gokusuper.png](https://www.pexels.com/sv-se/foto/1274262/)
 
 ### Acknowledgements
 Thank you to the following for inspiration, motivation and the direction I needed:

@@ -18,6 +18,9 @@ var rule2;
 var rule3;
 var rule4;
 
+var card = 'card_cover_default.png';
+var cardDisabled = 'card_cover_default_disabled.png';
+
 var playerName;
 
 var attemptAmount = 0;
@@ -65,11 +68,23 @@ function changeColorScheme(color) {
 // EXECUTED WHEN BACKGROUND COLOUR IS CHANGED
 function changeBackground(color) {
     if (color === 'background_green') {
-        console.log('B green');
         $('.background-styling').css('background', 'url("assets/images/background_texture_green.jpg") no-repeat center center fixed');
     } else if (color === 'background_red') {
-        console.log('B red');
         $('.background-styling').css('background', 'url("assets/images/background_texture_red.jpg") no-repeat center center fixed');
+    }
+}
+
+// EXECUTED WHEN CARD DESIGN IS CHANGES
+function changeCardDesign(choice) {
+    if (choice === 'default') {
+        card = 'card_cover_default.png';
+        cardDisabled = 'card_cover_default_disabled.png';
+    } else if (choice === 'goku') {
+        card = 'card_cover_goku.png';
+        cardDisabled = 'card_cover_goku_disabled.png';
+    } else if (choice === 'gokusuper') {
+        card = 'card_cover_gokusuper.png';
+        cardDisabled = 'card_cover_gokusuper_disabled.png';
     }
 }
 
@@ -203,9 +218,9 @@ function startGame() {
     for (i = 0; i < 10; i++) {
         if (i > 3) {
             $('#btn_card' + i).prop('disabled', true);
-            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">');
+            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/'+cardDisabled+'" alt="Playing card">');
         } else if (i <= 3) {
-            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default.png" alt="Playing card">');
+            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/'+card+'" alt="Playing card">');
             $('#btn_card' + i).prop('disabled', false);
         }
     }
@@ -235,9 +250,9 @@ $('#modal_message').on('hidden.bs.modal', function (e) {
     for (i = 0; i < 10; i++) {
         if (i > 3) {
             $('#btn_card' + i).prop('disabled', true);
-            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">');
+            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/'+cardDisabled+'" alt="Playing card">');
         } else if (i <= 3) {
-            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default.png" alt="Playing card">');
+            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/'+card+'" alt="Playing card">');
             $('#btn_card' + i).prop('disabled', false);
         }
     }
@@ -256,9 +271,9 @@ $('#reset_button').click(function () {
     for (i = 0; i < 10; i++) {
         if (i > 3) {
             $('#btn_card' + i).prop('disabled', true);
-            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">');
+            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/'+cardDisabled+'" alt="Playing card">');
         } else if (i <= 3) {
-            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default.png" alt="Playing card">');
+            $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/'+card+'" alt="Playing card">');
             $('#btn_card' + i).prop('disabled', false);
         }
     }
@@ -317,14 +332,14 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
         for (i = roundIdentifier; i < endLoopIdentifier; i++) {
             $('#card' + i).empty();
             if (i > switchIdentifier) {
-                $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default.png" alt="Playing card">');
+                $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/'+card+'" alt="Playing card">');
                 $('#btn_card' + i).prop('disabled', false);
             } else if (i <= switchIdentifier) {
                 $('#btn_card' + i).prop('disabled', true);
                 if (i === cardIdentifier) {
                     $('#card' + i).append('<img class="card_style" src="assets/images/cards/'+randomCards[cardIdentifier]+'.png" alt="Playing card">');
                 } else {
-                    $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">');
+                    $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/'+cardDisabled+'" alt="Playing card">');
                 }
             }
         }
@@ -346,7 +361,7 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
         for (i = roundIdentifier; i < 11; i++) {
             $('#card' + i).empty();
             if (i != cardIdentifier) {
-                $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/card_cover_default_disabled.png" alt="Playing card">');
+                $('#card' + i).append('<img class="card_style" src="assets/images/card_covers/'+cardDisabled+'" alt="Playing card">');
             }
             $('#btn_card' + i).prop('disabled', true);
         }
