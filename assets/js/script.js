@@ -82,45 +82,19 @@ function changeColor() {
     }
 }
 
-// SAVE SETTINGS FUNCTION
-function changeSettings() {
-    if ($('#player_name_settings').val() === '') {
-    } else {
-        playerName = $('#player_name_settings').val();
-    }
-
-    if ($('#player_name_settings').val() === '' && $('#round_one_rule_settings').val() === rule1 && $('#round_two_rule_settings').val() === rule2 && $('#round_three_rule_settings').val() === rule3 && $('#round_four_rule_settings').val() === rule4) {
-        $('#warning_textfield').empty('');
-        $('#warning_textfield').append('<p class="warning-text-spacing">No changes made.</p>');
-    } else {
-        $('#warning_textfield').empty('');
-        $('#warning_textfield').append('<p class="warning-text-spacing">Changes saved.</p>');
-    }
-
-    rule1 = $('#round_one_rule_settings').val();
-    rule2 = $('#round_two_rule_settings').val();
-    rule3 = $('#round_three_rule_settings').val();
-    rule4 = $('#round_four_rule_settings').val();
-
-    $('#player_name_settings').val('');
-    $('#settings_button').css('display', 'block');
-    $('.menu-settings').css('height', '100px');
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-    setTimeout(function () {
-        $('.menu-settings').css('position', 'fixed');
-        $('.menu-settings').css('overflow-y', 'hidden');
-        $('body').css('overflow', 'auto');
-    }, 1000);
-}
-
 // EXECUTED WHEN SETTINGS BUTTON IS PRESSED
 $('#settings_button').click(function () {
     $('#round_one_rule_settings').val(rule1);
     $('#round_two_rule_settings').val(rule2);
     $('#round_three_rule_settings').val(rule3);
     $('#round_four_rule_settings').val(rule4);
+    $('#warning_textfield').empty('');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+
     $('#settings_button').css('display', 'none');
-    $('.menu-settings').css('height', '600px');
+    $('.menu-settings').css('height', '100vh');
+    $('#settings_title').css('display', 'block');
+
     setTimeout(function () {
         $('.menu-settings').css('position', 'absolute');
         $('.settings-window').css('display', 'block');
@@ -129,17 +103,72 @@ $('#settings_button').click(function () {
     }, 1000);
 });
 
-// WHEN CLOSE BUTTON IS CLICKED IN SETTINGS SCREEN
-$('#close_settings').click(function () {
-    $('#warning_textfield').empty('');
+// EXECUTED WHEN RULES BUTTON IS PRESSED
+$('#rules_button').click(function () {
+    if ($('#settings_view').css('display') === 'block') {
+        $('#settings_view').css('display', 'none');
+        $('#rules_view').css('display', 'flex');
+        $("#rules_button").html('Settings');
+    } else {
+        $('#rules_view').css('display', 'none');
+        $('#settings_view').css('display', 'block');
+        $("#rules_button").html('How to play');
+    }
+    
+});
+
+// SAVE SETTINGS FUNCTION
+function changeSettings() {
+    if ($('#player_name_settings').val() === '') {
+    } else {
+        playerName = $('#player_name_settings').val();
+    }
+
     $('#player_name_settings').val('');
-    $('#settings_button').css('display', 'block');
+    
     $('.menu-settings').css('height', '100px');
     window.scrollTo({ top: 0, behavior: 'smooth' });
+    $('.menu-settings').animate({ scrollTop: 0 })
+    
     setTimeout(function () {
         $('.menu-settings').css('position', 'fixed');
         $('.menu-settings').css('overflow-y', 'hidden');
         $('body').css('overflow', 'auto');
+        $('#settings_button').css('display', 'block');
+        $('#settings_title').css('display', 'none');
+
+        // CHECK IF RULES HAVE BEEN CHANGES
+        if ($('#player_name_settings').val() === '' && $('#round_one_rule_settings').val() === rule1 && $('#round_two_rule_settings').val() === rule2 && $('#round_three_rule_settings').val() === rule3 && $('#round_four_rule_settings').val() === rule4) {
+            $('#warning_textfield').empty('');
+            $('#warning_textfield').append('<p class="warning-text-spacing">No changes made.</p>');
+        } else {
+            $('#warning_textfield').empty('');
+            $('#warning_textfield').append('<p class="warning-text-spacing">Changes saved.</p>');
+        }
+    }, 1000);
+
+    // CHANGE RULES
+    rule1 = $('#round_one_rule_settings').val();
+    rule2 = $('#round_two_rule_settings').val();
+    rule3 = $('#round_three_rule_settings').val();
+    rule4 = $('#round_four_rule_settings').val();
+}
+
+// WHEN CLOSE BUTTON IS CLICKED IN SETTINGS SCREEN
+$('#close_settings').click(function () {
+    $('#warning_textfield').empty('');
+    $('#player_name_settings').val('');
+
+    $('.menu-settings').css('height', '100px');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    $('.menu-settings').animate({ scrollTop: 0 })
+
+    setTimeout(function () {
+        $('.menu-settings').css('position', 'fixed');
+        $('.menu-settings').css('overflow-y', 'hidden');
+        $('body').css('overflow', 'auto');
+        $('#settings_button').css('display', 'block');
+        $('#settings_title').css('display', 'none');
     }, 1000);
 });
 

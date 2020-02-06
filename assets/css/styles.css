@@ -93,10 +93,6 @@ h1 {
     margin: 0;
 }
 
-#dropdownMenuLinkColor {
-    margin-left: 10px;
-}
-
 /*-- INTRO PAGE --*/
 .logo-settings {
     display: none;
@@ -122,6 +118,7 @@ h1 {
 /*-- COLLAPSABLE SETTINGS AREA --*/
 .menu-settings {
     position: fixed;
+    overflow-y: hidden;
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     height: 100px;
@@ -130,6 +127,10 @@ h1 {
     -moz-transition:height 1s ease-out;   
     -webkit-transition:height 1s ease-out;
     background-color: #000000;
+}
+
+#settings_title {
+    display: none;
 }
 
 .settings-divider {
@@ -145,7 +146,10 @@ h1 {
 
 .settings-window {
     margin-top: 10px;
-    /*display: none;*/
+}
+
+#rules_view {
+    display: none;
 }
 
 /*-- MODAL --*/
