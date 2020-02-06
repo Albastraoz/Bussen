@@ -6,7 +6,7 @@ The game is all about luck with a 50/50 win ratio per round where there are four
 My main goal is to make the game realistic so that you actually have a pack of cards where the program is the dealer.
 In this way it is possible to count cards and beat the game the deeper you get in untill the deck is empty and needs to be reshuffled.
 
-Hosted on [GitHub Pages](https://albastraoz.github.io/Bussen/index.html)
+Hosted on [GitHub Pages](https://albastraoz.github.io/Bussen/)
 Repository on [GitHub](https://github.com/Albastraoz/Bussen)
 
 ## UX
@@ -32,8 +32,8 @@ For fonts I tried to give it a look with rectangular shapes to fit the game.
     - Titles: font-family: 'Bebas Neue', cursive;
     - Text: font-family: 'Ubuntu', sans-serif;
 
-Colors and backgrounds are customizable by the user with a default setting, with an exception to the introduction screen.
-I've chosen to let the user decide the colors so that the application is more interactive which is the main goal of this project.
+Colors, cards and backgrounds are customizable by the user with a default setting, with an exception to the introduction screen.
+I've chosen to let the user decide the colors and designs so that the application is more interactive which is the main goal of this project.
 - For a neutral but modern look the introduction page has a background of ![#B3B3B3](https://placehold.it/15/B3B3B3/000000?text=+) `#B3B3B3`
 - Color schemes: 
     - *default* Dark: text-color ![#FAFAFA](https://placehold.it/15/FAFAFA/000000?text=+) `#FAFAFA`, background-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`
@@ -79,6 +79,7 @@ Features planned, implemented and outlined for later development
 - Realistic Game Mechanics
 - Colour Schemes
 - Custom Backgrounds
+- Customizable Card
 - Statistical Information
 - Bootstrap - HTML, CSS Framework
     - Grid System - Columns and Rows
@@ -96,7 +97,6 @@ Features planned, implemented and outlined for later development
 - Personal Stats By Player
 - Wider Variation Of Color Schemes
 - Wider Variation Of Backgrounds
-- Customizable Card
 
 ## Technologies Used
 
@@ -127,7 +127,7 @@ This project makes use of:
     - **Git** used for Version Control
 - [GitHub](https://github.com/)
     - Repository hosted on **GitHub**
-- [Github Pages](https://albastraoz.github.io/Bussen/index.html)
+- [Github Pages](https://albastraoz.github.io/Bussen/)
     - Website hosted on **Github Pages**
 - [Am I Responsive](http://ami.responsivedesign.is)
     - Testing responsiveness of the website
@@ -170,7 +170,7 @@ After complete product start to addres coding errors:
 
 ## Deployment
 
-The project is hosted on [GitHub Pages](https://albastraoz.github.io/Bussen/index.html)
+The project is hosted on [GitHub Pages](https://albastraoz.github.io/Bussen/)
 
 The process involved:
 - Host a git repository on GitHub. Explained [here](https://help.github.com/en/articles/create-a-repo).
