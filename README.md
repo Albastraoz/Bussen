@@ -6,6 +6,8 @@ The game is all about luck with a 50/50 win ratio per round where there are four
 My main goal is to make the game realistic so that you actually have a pack of cards where the program is the dealer.
 In this way it is possible to count cards and beat the game the deeper you get in untill the deck is empty and needs to be reshuffled.
 
+Note: There is no button to go back to the intro screen but this is on purpose since all the information and settings can be find after at the settings view.
+
 Hosted on [GitHub Pages](https://albastraoz.github.io/Bussen/)
 Repository on [GitHub](https://github.com/Albastraoz/Bussen)
 
@@ -33,6 +35,7 @@ For fonts I tried to give it a look with rectangular shapes to fit the game.
     - Text: font-family: 'Ubuntu', sans-serif;
 
 Colors, cards and backgrounds are customizable by the user with a default setting, with an exception to the introduction screen.
+All custom card designs are made by myself in photoshop by using copyright plus edit free images found from google.
 I've chosen to let the user decide the colors and designs so that the application is more interactive which is the main goal of this project.
 - For a neutral but modern look the introduction page has a background of ![#B3B3B3](https://placehold.it/15/B3B3B3/000000?text=+) `#B3B3B3`
 - Color schemes: 
