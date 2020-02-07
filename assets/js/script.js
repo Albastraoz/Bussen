@@ -124,7 +124,7 @@ $('#settings_button').click(function () {
     }, 1000);
 });
 
-// EXECUTED WHEN RULES BUTTON IS PRESSED
+// EXECUTED WHEN HOW TO PLAY BUTTON IS PRESSED
 $('#rules_button').click(function () {
     if ($('#settings_view').css('display') === 'block') {
         $('#settings_view').css('display', 'none');
@@ -134,8 +134,7 @@ $('#rules_button').click(function () {
         $('#rules_view').css('display', 'none');
         $('#settings_view').css('display', 'block');
         $("#rules_button").html('How to play');
-    }
-    
+    } 
 });
 
 // SAVE SETTINGS FUNCTION
@@ -220,7 +219,7 @@ function startGame() {
         randomCards.push(cardDeck.splice(Math.floor(Math.random() * cardDeck.length), 1));
     }
 
-    // BELOW THE CARDS ARE BEING DEALT
+    // HERE THE CARDS ARE BEING DEALT
     for (i = 0; i < 10; i++) {
         if (i > 3) {
             $('#btn_card' + i).prop('disabled', true);
@@ -230,6 +229,7 @@ function startGame() {
             $('#btn_card' + i).prop('disabled', false);
         }
     }
+    
     $('#warning_textfield').append('<p class="warning-text-spacing">Good luck '+playerName+'!</p>');
 }
 
@@ -362,7 +362,7 @@ $('#btn_card0, #btn_card1, #btn_card2, #btn_card3, #btn_card4, #btn_card5, #btn_
             $('#warning_textfield').append('<p class="warning-text-spacing">CORRECT! Next card.</p>');
         }
 
-        // THIS IS EXECUTED IF YOUR PREDICTION WAS WRONG
+    // THIS IS EXECUTED IF YOUR PREDICTION WAS WRONG
     } else {
         for (i = roundIdentifier; i < 11; i++) {
             $('#card' + i).empty();
