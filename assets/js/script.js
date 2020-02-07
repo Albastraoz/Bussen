@@ -67,9 +67,15 @@ function changeColorScheme(color) {
 // EXECUTED WHEN BACKGROUND COLOUR IS CHANGED
 function changeBackground(color) {
     if (color === 'background_green') {
-        $('.background-styling').css('background', 'url("assets/images/background_texture_green.jpg") no-repeat center center fixed');
+        $('.background-styling').css('background', 'url("assets/images/backgrounds/background_texture_green.jpg") no-repeat center center fixed');
     } else if (color === 'background_red') {
-        $('.background-styling').css('background', 'url("assets/images/background_texture_red.jpg") no-repeat center center fixed');
+        $('.background-styling').css('background', 'url("assets/images/backgrounds/background_texture_red.jpg") no-repeat center center fixed');
+    } else if (color === 'sunset') {
+        $('.background-styling').css('background', 'url("assets/images/backgrounds/background_sunset.jpg") no-repeat center center fixed');
+    } else if (color === 'clouds') {
+        $('.background-styling').css('background', 'url("assets/images/backgrounds/background_clouds.jpg") no-repeat center center fixed');
+    } else if (color === 'amsterdam') {
+        $('.background-styling').css('background', 'url("assets/images/backgrounds/background_amsterdam.jpg") no-repeat center center fixed');
     }
 }
 

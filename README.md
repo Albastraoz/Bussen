@@ -44,8 +44,11 @@ I've chosen to let the user decide the colors and designs so that the applicatio
     - Blue: text-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`, background-color ![#00f0ff](https://placehold.it/15/00f0ff/000000?text=+) `#00f0ff`
     - Red: text-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`, background-color ![#ff0000](https://placehold.it/15/ff0000/000000?text=+) `#ff0000`
 - Backgrounds:
-    - *default* [Green card table texture](https://github.com/Albastraoz/bussen/blob/master/assets/images/background_texture_green.jpg).
-    - [Red card table texture](https://github.com/Albastraoz/bussen/blob/master/assets/images/background_texture_red.jpg).
+    - *default* [Green card table texture](https://github.com/Albastraoz/bussen/blob/master/assets/images/backgrounds/background_texture_green.jpg).
+    - [Red card table texture](https://github.com/Albastraoz/bussen/blob/master/assets/images/backgrounds/background_texture_red.jpg).
+    - [Sunset on beach](https://github.com/Albastraoz/bussen/blob/master/assets/images/backgrounds/background_sunset.jpg).
+    - [Clouds high up in the air](https://github.com/Albastraoz/bussen/blob/master/assets/images/backgrounds/background_clouds.jpg).
+    - [Amsterdam canals view](https://github.com/Albastraoz/bussen/blob/master/assets/images/backgrounds/background_amsterdam.jpg).
 - Card designs:
     - *default* [Default](https://github.com/Albastraoz/Bussen/blob/master/assets/images/card_covers/card_cover_default.png).
     - [English Bus](https://github.com/Albastraoz/Bussen/blob/master/assets/images/card_covers/card_cover_englishbus.png).
@@ -225,9 +228,12 @@ The images for the website are copyright free and taken from:
 - [Flickr](http://www.flickr.com/)
 
 All images direct location:
+- [schoolbus.png](https://www.needpix.com/photo/669292/schoolbus-school-education-vehicle-transportation-bus-school-bus)
 - [background_texture_green.jpg](https://www.needpix.com/photo/1549611/dice-felt-green-casino-gambling-game-gaming-publicdomain-wallpaper)
 - [background_texture_red.jpg](https://commons.wikimedia.org/wiki/File:Whist-type_trick.jpg)
-- [schoolbus.png](https://www.needpix.com/photo/669292/schoolbus-school-education-vehicle-transportation-bus-school-bus)
+- [background_sunset.jpg](https://pixabay.com/sv/photos/solnedg%C3%A5ng-sky-pojke-f%C3%A5gel-ocean-4801688/)
+- [background_clouds.jpg](https://pixabay.com/sv/photos/sky-moln-solljus-m%C3%B6rk-molnlandskap-690293/)
+- [background_amsterdam.jpg](https://pixabay.com/sv/photos/amsterdam-bro-nederl%C3%A4nderna-holland-4230946/)
 - [All vector playing cards](https://commons.wikimedia.org/wiki/File:English_pattern_playing_cards_deck.svg)
 - [card_cover_default.png](https://commons.wikimedia.org/wiki/File:Reverso_baraja_espa%C3%B1ola.svg)
 - [card_cover_goku.png](https://pixabay.com/nl/illustrations/goku-kleuren-anime-comic-kleurboek-4735092/)
