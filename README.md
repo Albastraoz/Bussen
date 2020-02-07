@@ -173,6 +173,9 @@ Testing has been done in the following browsers:
 - Google Chrome (desktop and mobile)
 - Internet Explorer 11 (desktop)
 
+Know Bugs:
+- On mobile phones the background images jumps when the address bar appears/hides.
+
 ### Coding error testing
 After complete product start to addres coding errors:
 
