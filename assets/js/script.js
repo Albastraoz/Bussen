@@ -52,15 +52,15 @@ function changeColorScheme(color) {
         $('.intro-settings').css('background-color', '#fafafa');
         $('.menu-settings').css('background-color', '#fafafa');
         $('.settings-divider').css('background-color', '#000000');
-    } else if (color === 'green') {
+    } else if (color === 'blue') {
         $('.text-color').css('color', '#000000');
-        $('.intro-settings').css('background-color', '#52c230');
-        $('.menu-settings').css('background-color', '#52c230');
+        $('.intro-settings').css('background-color', '#00f0ff');
+        $('.menu-settings').css('background-color', '#00f0ff');
         $('.settings-divider').css('background-color', '#000000');
-    } else if (color === 'orange') {
+    } else if (color === 'red') {
         $('.text-color').css('color', '#000000');
-        $('.intro-settings').css('background-color', '#e45b00');
-        $('.menu-settings').css('background-color', '#e45b00');
+        $('.intro-settings').css('background-color', '#ff0000');
+        $('.menu-settings').css('background-color', '#ff0000');
         $('.settings-divider').css('background-color', '#000000');
     }
 }
@@ -85,6 +85,12 @@ function changeCardDesign(choice) {
     } else if (choice === 'gokusuper') {
         card = 'card_cover_gokusuper.png';
         cardDisabled = 'card_cover_gokusuper_disabled.png';
+    } else if (choice === 'english') {
+        card = 'card_cover_englishbus.png';
+        cardDisabled = 'card_cover_englishbus_disabled.png';
+    } else if (choice === 'tokyo') {
+        card = 'card_cover_tokyo.png'
+        cardDisabled = 'card_cover_tokyo_disabled.png'
     }
 }
 

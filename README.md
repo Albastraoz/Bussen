@@ -38,11 +38,17 @@ I've chosen to let the user decide the colors and designs so that the applicatio
 - Color schemes: 
     - *default* Dark: text-color ![#FAFAFA](https://placehold.it/15/FAFAFA/000000?text=+) `#FAFAFA`, background-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`
     - Light: text-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`, background-color ![#FAFAFA](https://placehold.it/15/FAFAFA/000000?text=+) `#FAFAFA`
-    - Green: text-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`, background-color ![#52C230](https://placehold.it/15/52C230/000000?text=+) `#52C230`
-    - Orange: text-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`, background-color ![#E45B00](https://placehold.it/15/E45B00/000000?text=+) `#E45B00`
+    - Blue: text-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`, background-color ![#00f0ff](https://placehold.it/15/00f0ff/000000?text=+) `#00f0ff`
+    - Red: text-color ![#000000](https://placehold.it/15/000000/000000?text=+) `#000000`, background-color ![#ff0000](https://placehold.it/15/ff0000/000000?text=+) `#ff0000`
 - Backgrounds:
     - *default* [Green card table texture](https://github.com/Albastraoz/bussen/blob/master/assets/images/background_texture_green.jpg).
     - [Red card table texture](https://github.com/Albastraoz/bussen/blob/master/assets/images/background_texture_red.jpg).
+- Card designs:
+    - *default* [Default](https://github.com/Albastraoz/Bussen/blob/master/assets/images/card_covers/card_cover_default.png).
+    - [English Bus](https://github.com/Albastraoz/Bussen/blob/master/assets/images/card_covers/card_cover_englishbus.png).
+    - [City Skyline](https://github.com/Albastraoz/Bussen/blob/master/assets/images/card_covers/card_cover_tokyo.png).
+    - [Dragon Ball](https://github.com/Albastraoz/Bussen/blob/master/assets/images/card_covers/card_cover_goku.png).
+    - [Super Saiyan Goku](https://github.com/Albastraoz/Bussen/blob/master/assets/images/card_covers/card_cover_gokusuper.png).
 
 ### Mockups
 The base idea gave me a good impression on how the game itself should look like but the end result is totaly different:
@@ -94,9 +100,10 @@ Features planned, implemented and outlined for later development
 - Deployed - Hosted on Github Pages
 
 ### Features Left to Implement
-- Personal Stats By Player
+- Personal Stats For Player
 - Wider Variation Of Color Schemes
 - Wider Variation Of Backgrounds
+- Wider Variation Of Card Designs
 
 ## Technologies Used
 
@@ -211,6 +218,8 @@ The images for the website are copyright free and taken from:
 - [Needpix](https://www.needpix.com/)
 - [Pixabay](https://pixabay.com/)
 - [Pexels](https://www.pexels.com/)
+- [Pxfuel](http://www.pxfuel.com/)
+- [Flickr](http://www.flickr.com/)
 
 All images direct location:
 - [background_texture_green.jpg](https://www.needpix.com/photo/1549611/dice-felt-green-casino-gambling-game-gaming-publicdomain-wallpaper)
@@ -220,6 +229,8 @@ All images direct location:
 - [card_cover_default.png](https://commons.wikimedia.org/wiki/File:Reverso_baraja_espa%C3%B1ola.svg)
 - [card_cover_goku.png](https://pixabay.com/nl/illustrations/goku-kleuren-anime-comic-kleurboek-4735092/)
 - [card_cover_gokusuper.png](https://www.pexels.com/sv-se/foto/1274262/)
+- [card_cover_englishbus.png](https://www.pxfuel.com/en/free-photo-jdxuo)
+- [card_cover_tokyo.png](https://www.flickr.com/photos/143951935@N07/28350408591)
 
 ### Acknowledgements
 Thank you to the following for inspiration, motivation and the direction I needed:
